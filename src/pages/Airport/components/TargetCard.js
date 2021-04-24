@@ -9,7 +9,7 @@ import Button from '@/components/Button'
 import Card from '@/components/Card/Card'
 import {getRoomByTarget} from '@/handlers/api/schemeHandler'
 import {selectSchemeRooms} from '@/pages/Airport/selectors'
-import {setTargetForm} from '@/store/Scheme/actions'
+import {setSearchFrom, setSearchTo, setTargetForm} from '@/store/Scheme/actions'
 
 const iconRoomType = {
   aud: AudienceIcon,
@@ -20,13 +20,15 @@ const iconRoomType = {
 
 /**
  * Карточка выбора аудитории схемы
- * @param {string} target Ключевое название комнаты
- * @param {function} setTarget Функция установки идентификатора комнаты
- * @param {array} schemeRooms Комнаты на схеме
+ * @param {string} target Ключевое название помещения
+ * @param {function} setTarget Функция установки идентификатора помещения
+ * @param {function} setSearchFrom Функция установки 'Откуда'
+ * @param {function} setSearchTo Функция установки 'Куда'
+ * @param {array} schemeRooms Помещения на схеме
  * @param {object} search Форма заполнения маршрута
- * @returns {JSX.Element} Элемент карточки выбора аудитории
+ * @returns {JSX.Element} Элемент карточки выбора куда строить маршрут
  */
-function TargetCard({target, setTarget, schemeRooms, search}) {
+function TargetCard({target, setTarget, setSearchTo, setSearchFrom, schemeRooms, search}) {
   const [room, setRoom] = useState({})
 
   useEffect(() => {
@@ -35,22 +37,24 @@ function TargetCard({target, setTarget, schemeRooms, search}) {
 
   return <>
     {(target && room) &&
-    <div className='absolute bottom-16 max-w-md w-1/3 min-w-max mx-auto inset-x-0'>
-      <Card className='flex py-3 px-6 justify-between space-x-5'>
-        <div className='flex space-x-3'>
+    <div className="absolute bottom-16 max-w-md w-1/3 min-w-max mx-auto inset-x-0">
+      <Card className="flex py-3 px-6 justify-between space-x-5">
+        <div className="flex space-x-3">
           {createElement(
             iconRoomType[room.type] ? iconRoomType[room.type] : 'div',
             {className: 'self-center text-gray-600 h-7'}
           )}
-          <h1 className='self-center text-coolGray-600 font-medium'>
+          <h1 className="self-center text-coolGray-600 font-medium">
             {room.title}
           </h1>
         </div>
-        <div className='flex space-x-5'>
+        <div className="flex space-x-5">
           <Button
-            size='sm'
-            color='primary'
+            size="sm"
+            color="primary"
             onClick={() => {
+              setSearchFrom('', '')
+              setSearchTo(room.title, room.target)
               setTarget(null)
             }}
           >
@@ -66,12 +70,14 @@ function TargetCard({target, setTarget, schemeRooms, search}) {
 TargetCard.propTypes = {
   target: PropTypes.string,
   setTarget: PropTypes.func,
+  setSearchTo: PropTypes.func,
+  setSearchFrom: PropTypes.func,
   schemeRooms: PropTypes.array,
   search: PropTypes.object
 }
 
 /**
- * Получение состояния комнат здания
+ * Получение состояния помещений здания
  * @param {object} state Состояние
  * @returns {{schemeRooms: []}} Значения состояний
  */
@@ -90,7 +96,9 @@ const targetCardState = state => {
  */
 const targetCardDispatch = dispatch => {
   return {
-    setTarget: target => dispatch(setTargetForm(target))
+    setTarget: target => dispatch(setTargetForm(target)),
+    setSearchTo: (target, value) => dispatch(setSearchTo(target, value)),
+    setSearchFrom: (target, value) => dispatch(setSearchFrom(target, value))
   }
 }
 

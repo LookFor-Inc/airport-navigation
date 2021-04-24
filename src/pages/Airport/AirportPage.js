@@ -1,5 +1,6 @@
 import React from 'react'
 import NavigationProvider from '@/pages/Airport/components/BottomNavigation/NavigationProvider'
+import WayFinding from '@/pages/Airport/components/WayFinding'
 import NavigationView from '@/pages/Airport/NavigationView'
 import withSchemePage from '@/pages/Airport/withSchemePage'
 
@@ -10,6 +11,7 @@ import withSchemePage from '@/pages/Airport/withSchemePage'
 function AirportPage() {
   return (
     <div className='bg-gray-50 h-screen'>
+      <WayFinding />
       <NavigationProvider>
         <NavigationView />
       </NavigationProvider>

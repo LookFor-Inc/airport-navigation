@@ -8,5 +8,7 @@ export const HIDE_PROGRESS = 'MAP/HIDE_PROGRESS'
 export const SAVE_TRANSFORM = 'MAP/SAVE_TRANSFORM'
 export const SET_PATH = 'PATH/SET'
 export const RESET_PATH = 'PATH/RESET'
+export const SET_SEARCH_TO = 'SEARCH/SET_TO'
+export const SET_SEARCH_FROM = 'SEARCH/SET_FROM'
 export const CLEAR_SEARCH = 'SEARCH/CLEAR'
 

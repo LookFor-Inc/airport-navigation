@@ -1,7 +1,12 @@
 export const registration = {
-  target: 'aud13',
+  target: 'aud17',
   title: 'Вход в терминал D'
 }
-export const customs = 'customs'
-export const passportControl = 'passport control'
-export const landing = 'landing'
+export const customs = {
+  target: 'aud16',
+  title: 'Таможенный контроль'
+}
+export const passportControl = {
+  target: 'aud8',
+  title: 'Паспортный контроль'
+}

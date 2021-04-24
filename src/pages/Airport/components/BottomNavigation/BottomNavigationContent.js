@@ -4,7 +4,7 @@ import ChatIcon from '@/assets/icons/ChatIcon'
 import InfoIcon from '@/assets/icons/InfoIcon'
 import SchemeIcon from '@/assets/icons/SchemeIcon'
 import {chatTab, infoTab, schemeTab} from '@/data/schemeSidebarTabs'
-import {useNavigation} from '@/pages/Scheme/components/BottomNavigation/NavigationProvider'
+import {useNavigation} from '@/pages/Airport/components/BottomNavigation/NavigationProvider'
 
 /**
  * Содержимое нижней навигационной панели

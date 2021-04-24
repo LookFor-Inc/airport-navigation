@@ -15,7 +15,7 @@ const schemePage = {
   title: 'Indoor Schemes',
   exact: true,
   path: ['/terminal/:schemeId'],
-  component: lazy(() => import('@/pages/Scheme/SchemePage')),
+  component: lazy(() => import('@/pages/Airport/AirportPage')),
   layout: DefaultLayout
 }
 

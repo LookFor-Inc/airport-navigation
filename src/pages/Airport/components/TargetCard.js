@@ -8,7 +8,7 @@ import WCIcon from '@/assets/icons/RoomType/WCIcon'
 import Button from '@/components/Button'
 import Card from '@/components/Card/Card'
 import {getRoomByTarget} from '@/handlers/api/schemeHandler'
-import {selectSchemeRooms} from '@/pages/Scheme/selectors'
+import {selectSchemeRooms} from '@/pages/Airport/selectors'
 import {setTargetForm} from '@/store/Scheme/actions'
 
 const iconRoomType = {

@@ -1,6 +1,18 @@
 const TERMINAL_D_FLOORS = {
   floors: {
-    0: {
+    1: {
+      rooms: [],
+      vertices: []
+    },
+    2: {
+      rooms: [],
+      vertices: []
+    },
+    3: {
+      rooms: [],
+      vertices: []
+    },
+    4: {
       rooms: [],
       vertices: []
     }

@@ -1,9 +1,9 @@
 import React from 'react'
-import Controllers from '@/pages/Scheme/components/Controllers'
-import FloorNumController from '@/pages/Scheme/components/FloorNumController'
-import Map from '@/pages/Scheme/components/Map/Map'
-import TargetCard from '@/pages/Scheme/components/TargetCard'
-import ZoomController from '@/pages/Scheme/components/ZoomController'
+import Controllers from '@/pages/Airport/components/Controllers'
+import FloorNumController from '@/pages/Airport/components/FloorNumController'
+import Map from '@/pages/Airport/components/Map/Map'
+import TargetCard from '@/pages/Airport/components/TargetCard'
+import ZoomController from '@/pages/Airport/components/ZoomController'
 
 /**
  * Вкладка схемы

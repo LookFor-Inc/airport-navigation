@@ -5,7 +5,7 @@ import {connect} from 'react-redux'
 import ChevronDownIcon from '@/assets/icons/Chevron/ChevronDownIcon'
 import ChevronUpIcon from '@/assets/icons/Chevron/ChevronUpIcon'
 import {getLastArrayItem} from '@/helpers/common'
-import {selectSchemeFloorsInfo} from '@/pages/Scheme/selectors'
+import {selectSchemeFloorsInfo} from '@/pages/Airport/selectors'
 import {setFloorFullData, showProgress} from '@/store/Scheme/actions'
 
 /**
@@ -75,48 +75,51 @@ function FloorNumController({floors, setFloor, showProgress, persistedFloor}) {
 
   return (
     <div className={
-      classNames('absolute md:static mb-16 md:mb-0 md:mt-0 right-2 inset-y-0 flex pointer-events-auto max-h-65 mt-16')
+      classNames('absolute md:static mb-16 md:mb-0 md:mt-0 right-2 inset-y-0 pointer-events-auto max-h-65 mt-16' +
+        '')
     }>
-      <div className='flex flex-col w-10 rounded-lg shadow sm:hover:shadow-lg text-gray-500 md:max-h-full'>
-        <button
-          className='flex justify-center py-3 bg-white rounded-t-lg duration-100 hover:text-black'
-          onClick={() => {
-            if (activeFloor <= 0) return
-            const next = activeFloor - 1
-            scrollTo(next)
-            onFloorChange(next)
-          }}
-        >
-          <ChevronUpIcon className='h-4' />
-        </button>
-        <div className='overflow-y-auto no-scrollbar flex flex-col bg-white'
-        >
-          {floors.map(({floorNum, url}, id) =>
-            <button
-              key={floorNum}
-              ref={floorRefs[id]}
-              className={
-                classNames('flex-shrink-0 py-2 duration-100 bg-white text-sm hover:text-black', {
-                  'bg-primary text-white hover:text-white': id === activeFloor
-                })
-              }
-              onClick={() => onFloorChange(id)}
-            >
-              {floorNum}
-            </button>
-          )}
+      <div className='rounded-lg shadow sm:hover:shadow-lg h-auto'>
+        <div className='flex flex-col w-10 text-gray-500 md:max-h-full'>
+          <button
+            className='flex justify-center py-3 bg-white rounded-t-lg duration-100 hover:text-black'
+            onClick={() => {
+              if (activeFloor <= 0) return
+              const next = activeFloor - 1
+              scrollTo(next)
+              onFloorChange(next)
+            }}
+          >
+            <ChevronUpIcon className='h-4' />
+          </button>
+          <div className='overflow-y-auto no-scrollbar flex flex-col bg-white'
+          >
+            {floors.map(({floorNum, url}, id) =>
+              <button
+                key={floorNum}
+                ref={floorRefs[id]}
+                className={
+                  classNames('flex-shrink-0 py-2 duration-100 bg-white text-sm hover:text-black', {
+                    'bg-primary text-white hover:text-white': id === activeFloor
+                  })
+                }
+                onClick={() => onFloorChange(id)}
+              >
+                {floorNum}
+              </button>
+            )}
+          </div>
+          <button
+            className='flex justify-center py-3 bg-white rounded-b-lg duration-100 hover:text-black'
+            onClick={() => {
+              if (activeFloor >= floors.length - 1) return
+              const next = activeFloor + 1
+              scrollTo(next)
+              onFloorChange(next)
+            }}
+          >
+            <ChevronDownIcon className='h-4' />
+          </button>
         </div>
-        <button
-          className='flex justify-center py-3 bg-white rounded-b-lg duration-100 hover:text-black'
-          onClick={() => {
-            if (activeFloor >= floors.length - 1) return
-            const next = activeFloor + 1
-            scrollTo(next)
-            onFloorChange(next)
-          }}
-        >
-          <ChevronDownIcon className='h-4' />
-        </button>
       </div>
     </div>
   )

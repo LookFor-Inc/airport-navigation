@@ -8,6 +8,7 @@ import WCIcon from '@/assets/icons/RoomType/WCIcon'
 import Button from '@/components/Button'
 import Card from '@/components/Card/Card'
 import {getRoomByTarget} from '@/handlers/api/schemeHandler'
+import {useCheckpoints} from '@/pages/Airport/components/BottomNavigation/CheckpointsProvider'
 import {selectSchemeRooms} from '@/pages/Airport/selectors'
 import {setSearchFrom, setSearchTo, setTargetForm} from '@/store/Scheme/actions'
 
@@ -29,6 +30,7 @@ const iconRoomType = {
  * @returns {JSX.Element} Элемент карточки выбора куда строить маршрут
  */
 function TargetCard({target, setTarget, setSearchTo, setSearchFrom, schemeRooms, search}) {
+  const {checkpoint} = useCheckpoints()
   const [room, setRoom] = useState({})
 
   useEffect(() => {
@@ -53,8 +55,8 @@ function TargetCard({target, setTarget, setSearchTo, setSearchFrom, schemeRooms,
             size="sm"
             color="primary"
             onClick={() => {
-              setSearchFrom('', '')
-              setSearchTo(room.title, room.target)
+              setSearchFrom(checkpoint.target, checkpoint.title)
+              setSearchTo(room.target, room.title)
               setTarget(null)
             }}
           >

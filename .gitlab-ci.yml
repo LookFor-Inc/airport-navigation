@@ -1,0 +1,102 @@
+image: node:latest
+
+stages:
+  - quality
+  - dependencies
+  - build
+  - image
+  - deploy
+
+check_eslint:
+  stage: quality
+  script:
+    - |
+      npm install eslint \
+      eslint-config-google \
+      eslint-import-resolver-webpack \
+      eslint-plugin-import \
+      eslint-plugin-jsx-a11y \
+      eslint-plugin-react \
+      eslint-plugin-react-hooks
+    - npm run lint
+  only:
+    - merge_requests
+
+install_dependencies:
+  stage: dependencies
+  cache:
+    key: $CI_COMMIT_REF_SLUG-$CI_PROJECT_DIR
+    paths:
+      - node_modules/
+  script:
+    - npm install --no-progress
+  only:
+    refs:
+      - master
+    changes:
+      - package-lock.json
+      - .gitlab-ci.yml
+
+build_node:
+  stage: build
+  cache:
+    key: $CI_COMMIT_REF_SLUG-$CI_PROJECT_DIR
+    paths:
+      - node_modules/
+    policy: pull
+  script:
+    - npm run build
+  artifacts:
+    expire_in: 1 hour
+    paths:
+      - build
+  only:
+    - master
+
+build_docker:
+  image: docker:latest
+  stage: image
+  services:
+    - docker:dind
+  before_script:
+    - chmod +x ./setup_env.sh
+    - sh ./setup_env.sh
+  script:
+    - docker login -u $CI_REGISTRY_USER -p $CI_REGISTRY_PASSWORD $CI_REGISTRY
+    - docker build -t $CI_REGISTRY_IMAGE --build-arg NO_BUILD=true .
+    - docker push $CI_REGISTRY_IMAGE
+  only:
+    - master
+
+deploy_heroku:
+  image: docker:latest
+  stage: deploy
+  variables:
+    HEROKU_REGISTRY: registry.heroku.com
+  services:
+    - docker:dind
+  script:
+    - docker login -u $CI_REGISTRY_USER -p $CI_REGISTRY_PASSWORD $CI_REGISTRY
+    - docker pull $CI_REGISTRY_IMAGE:latest
+    - docker login --username=_ --password=$HEROKU_AUTH_TOKEN $HEROKU_REGISTRY
+    - docker tag $CI_REGISTRY_IMAGE $HEROKU_REGISTRY/$HEROKU_APP_NAME/web
+    - docker push $HEROKU_REGISTRY/$HEROKU_APP_NAME/web
+    - docker run --rm -e HEROKU_API_KEY=$HEROKU_AUTH_TOKEN wingrunr21/alpine-heroku-cli container:release web --app $HEROKU_APP_NAME
+  dependencies: []
+  only:
+    - master
+
+pages:
+  image: ruby:latest
+  stage: deploy
+  script:
+    - rm -rf public
+    - cp build/index.html build/404.html
+    - mv build public
+  artifacts:
+    paths:
+      - public
+  dependencies:
+    - build_node
+  only:
+    - master

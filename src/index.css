@@ -1,0 +1,104 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    -webkit-tap-highlight-color: transparent;
+  }
+}
+
+@layer utilities {
+  @variants responsive {
+    /* Chrome, Safari and Opera */
+    .no-scrollbar::-webkit-scrollbar {
+      display: none;
+    }
+
+    .no-scrollbar {
+      -ms-overflow-style: none;  /* IE and Edge */
+      scrollbar-width: none;  /* Firefox */
+    }
+  }
+}
+
+@layer components {
+  input {
+    border-radius: 0;
+  }
+
+  input[type="search"] {
+    -webkit-appearance: none;
+  }
+
+  input[type="search"]::-webkit-search-cancel-button {
+    -webkit-appearance: none;
+    height: 12px;
+    width: 12px;
+    background: url("data:image/svg+xml;charset=UTF-8,%3csvg viewPort='0 0 12 12' version='1.1' xmlns='http://www.w3.org/2000/svg'%3e%3cline x1='1' y1='11' x2='11' y2='1' stroke='gray' stroke-width='2'/%3e%3cline x1='1' y1='1' x2='11' y2='11' stroke='gray' stroke-width='2'/%3e%3c/svg%3e");
+  }
+
+  button, input {
+    @apply outline-none focus:outline-none
+  }
+
+  .input {
+    @apply w-full py-2 px-4 rounded-md border border-gray-300
+    bg-white text-gray-700 placeholder-gray-400
+    shadow-sm text-base focus:ring-1
+    focus:ring-primary focus:border-primary
+  }
+
+  .btn {
+    @apply py-2 px-4
+    border border-gray-300
+    flex items-center justify-center
+    text-gray-700 hover:bg-gray-200
+    text-base font-medium
+    transition-colors
+    rounded-md
+  }
+
+  .btn-primary {
+    @apply bg-primary hover:bg-primaryDark text-white border-primary hover:border-primaryDark
+  }
+
+  .btn-secondary {
+    @apply bg-white hover:bg-gray-200 border-primary text-gray-700
+  }
+
+  .btn-error {
+    @apply bg-error hover:bg-errorDark border-error text-white hover:border-errorDark
+  }
+}
+
+@media (min-width: 1024px) {
+  .bg-landing {
+    background: linear-gradient(120deg, rgba(243, 244, 246, 1) 70%, rgba(255, 255, 255, 1) 70%);
+  }
+}
+
+.nav-link:after {
+  content: '';
+  @apply bg-primary absolute h-0.5 top-full left-0 right-0 opacity-0 transition duration-100
+}
+
+.nav-link-active:after {
+  @apply opacity-100
+}
+
+@variants hover {
+  .nav-link-active:after {
+    @apply opacity-100
+  }
+}
+
+.max-h-65 {
+  max-height: 16.25rem;
+}
+
+.react-autosuggest__container {
+  width: 100%;
+}

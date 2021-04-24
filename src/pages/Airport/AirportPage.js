@@ -4,12 +4,12 @@ import NavigationView from '@/pages/Airport/NavigationView'
 import withSchemePage from '@/pages/Airport/withSchemePage'
 
 /**
- * Страница схемы
+ * Страница с информацией
  * @returns {JSX.Element} Элемент страницы схемы
  */
 function AirportPage() {
   return (
-    <div className='bg-gray-50 h-screen'>
+    <div className=''>
       <NavigationProvider>
         <NavigationView />
       </NavigationProvider>

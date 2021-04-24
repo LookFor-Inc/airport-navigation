@@ -45,10 +45,9 @@
   }
 
   .input {
-    @apply w-full py-2 px-4 rounded-md border border-gray-300
+    @apply w-full py-3 px-4 rounded-md
     bg-white text-gray-700 placeholder-gray-400
-    shadow-sm text-base focus:ring-1
-    focus:ring-primary focus:border-primary
+    shadow-sm text-base
   }
 
   .btn {
@@ -105,4 +104,8 @@
 
 .top-shadow {
   box-shadow: 0 -2px 5px rgb(224, 224, 224);
+}
+
+.max-w-xs {
+  max-width: 18rem;
 }

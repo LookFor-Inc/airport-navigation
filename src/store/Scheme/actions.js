@@ -2,7 +2,7 @@ import {getTerminalJsonData, isTerminalExist} from '@/handlers/api/terminalsHand
 import {
   SET_FLOOR_FULL_DATA, SET_PATH, RESET_PATH,
   SHOW_PROGRESS, HIDE_PROGRESS, SAVE_TRANSFORM,
-  CLEAR_SEARCH, SET_TARGET_FORM, FETCH_SCHEME_FULFILLED, FETCH_SCHEME_REJECTED
+  CLEAR_SEARCH, SET_TARGET_FORM, FETCH_SCHEME_FULFILLED, FETCH_SCHEME_REJECTED, SET_FLOOR_NUM
 } from '../types'
 
 /**
@@ -140,3 +140,16 @@ export function clearSearch() {
   }
 }
 
+/**
+ * Установка номера этажа
+ * @param {number} num Номер этажа
+ * @returns {object} Action creator
+ */
+export function setFloorNum(num) {
+  return {
+    type: SET_FLOOR_NUM,
+    payload: {
+      num
+    }
+  }
+}

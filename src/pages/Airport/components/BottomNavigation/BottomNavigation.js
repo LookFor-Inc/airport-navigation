@@ -8,7 +8,7 @@ import PropTypes from 'prop-types'
  */
 function BottomNavigation({children}) {
   return (
-    <div className='absolute fixed inset-x-0 bottom-0'>
+    <div className='fixed inset-x-0 bottom-0'>
       <div className='bg-white py-1 z-30 top-shadow'>
         {children}
       </div>

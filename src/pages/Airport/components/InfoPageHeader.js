@@ -3,7 +3,6 @@ import PropTypes from 'prop-types'
 import ChevronRightIcon from '@/assets/icons/Chevron/ChevronRightIcon'
 import PlaneIcon from '@/assets/icons/PlaneIcon'
 import RocketIcon from '@/assets/icons/RocketIcon'
-import Content from '@/components/Page/Content'
 import ExtraInfoButton from '@/pages/Airport/components/ExtraInfoButton'
 import TerminalLogo from '@/pages/Airport/components/TerminalLogo'
 
@@ -30,7 +29,7 @@ function InfoPageHeader({time}) {
           color='pink'
         />
       </div>
-      </div>
+    </div>
   )
 }
 

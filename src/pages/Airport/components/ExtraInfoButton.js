@@ -2,8 +2,17 @@ import React, {createElement} from 'react'
 import classNames from 'classnames'
 import PropTypes from 'prop-types'
 
+/**
+ * Кнопкадля отображения дополнительной информации внутри себя
+ * @param {function} Icon Икнока
+ * @param {string} text Текст кнопки
+ * @param {string|function} extraData Дополнительные текст илииконка
+ * @param {string} color Название цвета
+ * @param {object} props Дополнительные параметры
+ * @returns {JSX.Element} Кнопка, содержащяя внтури себя доп информацию
+ * @constructor
+ */
 function ExtraInfoButton({Icon, text, extraData, color, ...props}) {
-  console.log(typeof extraData)
   const classes = classNames('flex justify-between btn select-none', {
     'btn-error': color === 'error',
     'bg-pink-500 hover:bg-pink-700': color === 'pink',
@@ -23,7 +32,7 @@ function ExtraInfoButton({Icon, text, extraData, color, ...props}) {
 }
 
 ExtraInfoButton.propTypes = {
-  Icon: PropTypes.node,
+  Icon: PropTypes.func,
   text: PropTypes.string,
   extraData: PropTypes.oneOfType([
     PropTypes.string,

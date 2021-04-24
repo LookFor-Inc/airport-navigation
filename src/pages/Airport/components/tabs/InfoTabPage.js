@@ -1,5 +1,6 @@
 import React from 'react'
 import InfoTabHeader from '@/pages/Airport/components/InfoPageHeader'
+import Timeline from '@/pages/Airport/components/Timeline/Timeline'
 
 /**
  * Вкладка инфо
@@ -9,6 +10,7 @@ function InfoTabPage() {
   return (
     <>
       <InfoTabHeader />
+      <Timeline />
     </>
   )
 }

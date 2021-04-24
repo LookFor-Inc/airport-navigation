@@ -7,6 +7,10 @@ import Content from '@/components/Page/Content'
 import ExtraInfoButton from '@/pages/Airport/components/ExtraInfoButton'
 import TerminalLogo from '@/pages/Airport/components/TerminalLogo'
 
+/**
+ * Шапка для страницы с информацией для пользователя
+ * @returns {JSX.Element} Шапка для страницы с информацией
+ */
 function InfoPageHeader() {
   return (
     <Content>

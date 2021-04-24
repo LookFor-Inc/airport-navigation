@@ -59,13 +59,24 @@ function PathLine({sizes, wayfindingPath, floorNum}) {
   return (
     <>
       {getPathOnFloor(wayfindingPath, floorNum)
-        .map((pathLine, i) =>
-          <path
-            key={i}
-            className='map_path-line'
-            style={{strokeWidth: `${Math.max(k1, k2)}px`}}
-            d={line(pathLine)}
+        .map((pathLine, i) => {
+          console.log(pathLine)
+          const res = pathLine.reduce((acc, currValue, idx, arr) => {
+            if (idx === 0) {
+              return 0
+            }
+            const dx = Math.abs(arr[idx - 1][0] - currValue[0])
+            const dy = Math.abs(arr[idx - 1][1] - currValue[1])
+            return parseFloat(acc) + Math.sqrt(Math.pow(dx, 2) + Math.pow(dy, 2))
+          }, 0)
+          console.log(res)
+          return <path
+              key={i}
+              className='map_path-line'
+              style={{strokeWidth: `${Math.max(k1, k2)}px`}}
+              d={line(pathLine)}
           />
+        }
         )}
     </>
   )

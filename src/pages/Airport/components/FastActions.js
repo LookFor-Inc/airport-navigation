@@ -5,6 +5,10 @@ import MoneyIcon from '@/assets/icons/MoneyIcon'
 import RestaurantIcon from '@/assets/icons/RestaurantIcon'
 import ToiletIcon from '@/assets/icons/ToiletIcon'
 
+/**
+ * Элемент "Быстрые действия"
+ * @returns {JSX.Element} Элемент "Быстрые действия"
+ */
 function FastActions() {
   return (
     <div className="pt-5">
@@ -72,23 +76,6 @@ function FastActions() {
               <span className="text-center text-gray-900 font-sans font-semibold text-sm">Обмен валют</span>
             </div>
           </button>
-          {/* eslint-disable-next-line max-len */}
-          { /* <div className="ml-6 min-width bg-gray-900 h-16 w-16 text-white text-center font-extrabold flex items-center
-        justify-center rounded-full">
-            <RestaurantIcon/>
-          </div>
-          <div className="ml-6 min-width bg-gray-900 h-16 w-16 text-white text-center font-extrabold flex items-center
-        justify-center rounded-full">
-            <CovidIcon/>
-          </div>
-          <div className="ml-6 min-width bg-gray-900 h-16 w-16 text-white text-center font-extrabold flex items-center
-        justify-center rounded-full">
-            <BaggageIcon/>
-          </div>
-          <div className="ml-6 min-width bg-gray-900 h-16 w-16 text-white text-center font-extrabold flex items-center
-        justify-center rounded-full">
-            <MoneyIcon/>
-          </div>*/}
         </div>
       </div>
     </div>

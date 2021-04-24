@@ -1,6 +1,6 @@
 import React from 'react'
 import InfoTabHeader from '@/pages/Airport/components/InfoPageHeader'
-import Timeline from '@/pages/Airport/components/Timeline/Timeline'
+import InfoTabBody from '@/pages/Airport/components/InfoTabBody'
 
 /**
  * Вкладка инфо
@@ -9,8 +9,8 @@ import Timeline from '@/pages/Airport/components/Timeline/Timeline'
 function InfoTabPage() {
   return (
     <>
-      <InfoTabHeader />
-      <Timeline />
+      <InfoTabHeader/>
+      <InfoTabBody />
     </>
   )
 }

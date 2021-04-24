@@ -1,5 +1,10 @@
 import React from 'react'
 
+/**
+ * Икнока регистрации пассажира
+ * @param {object} props Дополнительные свойтсва
+ * @returns {JSX.Element} Икнока регистрации пассажира
+ */
 function ReceptionIcon(props) {
   return (
     <svg {...props} width='33' height='35' viewBox='0 0 33 35' fill='currentColor' xmlns='http://www.w3.org/2000/svg'>

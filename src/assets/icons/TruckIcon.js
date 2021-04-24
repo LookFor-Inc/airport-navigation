@@ -1,5 +1,10 @@
 import React from 'react'
 
+/**
+ * Икнока трака для посадки пассажиров
+ * @param {object} props Дополнительные свойтсва
+ * @returns {JSX.Element} Икнока трака лдя посадки пассажиров
+ */
 function TruckIcon(props) {
   return (
     <svg {...props} width="32" height="23" viewBox="0 0 32 23" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
@@ -21,6 +26,5 @@ function TruckIcon(props) {
     </svg>
   )
 }
-
 
 export default TruckIcon

@@ -1,5 +1,10 @@
 import React from 'react'
 
+/**
+ * Икнока паспортного контроля
+ * @param {object} props Дополнительные свойтсва
+ * @returns {JSX.Element} Икнока пасспортного контроля
+ */
 function PassportControlIcon(props) {
   return (
     <svg {...props} width='32' height='32' viewBox='0 0 32 32' fill='currentColor' xmlns='http://www.w3.org/2000/svg'>

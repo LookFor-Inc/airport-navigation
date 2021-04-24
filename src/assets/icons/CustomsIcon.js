@@ -1,5 +1,10 @@
 import React from 'react'
 
+/**
+ * Икнока таможни
+ * @param {object} props Дополнительные свойтсва
+ * @returns {JSX.Element} Икнока таможни
+ */
 function CustomsIcon(props) {
   return (
     <svg {...props} width='32' height='32' viewBox='0 0 32 32' fill='currentColor' xmlns='http://www.w3.org/2000/svg'>

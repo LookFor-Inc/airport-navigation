@@ -8,7 +8,7 @@ import InfoTabHeader from '@/pages/Airport/components/InfoPageHeader'
 function InfoTabPage() {
   return (
     <>
-      <InfoTabHeader time='1 час 2 минуты'/>
+      <InfoTabHeader />
     </>
   )
 }

@@ -1,22 +1,31 @@
 import React from 'react'
 import PropTypes from 'prop-types'
+import ChevronRightIcon from '@/assets/icons/Chevron/ChevronRightIcon'
 import PlaneIcon from '@/assets/icons/PlaneIcon'
+import RocketIcon from '@/assets/icons/RocketIcon'
+import Content from '@/components/Page/Content'
 import ExtraInfoButton from '@/pages/Airport/components/ExtraInfoButton'
 import TerminalLogo from '@/pages/Airport/components/TerminalLogo'
 
-function InfoPageHeader({time}) {
+function InfoPageHeader() {
   return (
-    <div className='flex flex-col items-center'>
-      <div className='inline-flex flex-col'>
-        <TerminalLogo className='self-start' terminalName='Терминал Д'/>
+    <Content>
+      <TerminalLogo className='pb-6' terminalName='Терминал Д'/>
+      <div className='flex flex-col space-y-4'>
         <ExtraInfoButton
           Icon={PlaneIcon}
           text='Время до вылета'
-          extraText={time}
+          extraData='1 час 2 минуты'
           color='error'
         />
+        <ExtraInfoButton
+          Icon={RocketIcon}
+          text='Fast track'
+          extraData={ChevronRightIcon}
+          color='pink'
+        />
       </div>
-    </div>
+    </Content>
   )
 }
 

@@ -2,22 +2,22 @@ import React from 'react'
 import PropTypes from 'prop-types'
 
 /**
- * Нижняя навигационная панель
+ * Верхняя навигационная панель
  * @param {element} children Дочерние элементы
  * @returns {JSX.Element} Навигационная панель
  */
-function BottomNavigation({children}) {
+function Navbar({children}) {
   return (
-    <div className='absolute fixed inset-x-0 bottom-0'>
-      <div className='bg-white py-1 z-30 top-shadow'>
+    <div className='fixed inset-x-0 top-0 z-30'>
+      <div className='bg-white py-5 shadow-md'>
         {children}
       </div>
     </div>
   )
 }
 
-BottomNavigation.propTypes = {
+Navbar.propTypes = {
   children: PropTypes.node
 }
 
-export default BottomNavigation
+export default Navbar

@@ -1,4 +1,5 @@
 import React from 'react'
+import Navbar from '@/pages/Airport/components/Navbar/Navbar'
 
 /**
  * Вкладка онлайн-чата
@@ -6,7 +7,11 @@ import React from 'react'
  */
 function ChatTabPage() {
   return (
-    <></>
+    <Navbar>
+      <div className='font-medium text-center'>
+      Онлайн-чат
+      </div>
+    </Navbar>
   )
 }
 

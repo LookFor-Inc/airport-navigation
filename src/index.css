@@ -102,3 +102,7 @@
 .react-autosuggest__container {
   width: 100%;
 }
+
+.top-shadow {
+  box-shadow: 0 -2px 5px rgb(224, 224, 224);
+}

@@ -35,7 +35,7 @@ function TargetCard({target, setTarget, schemeRooms, search}) {
 
   return <>
     {(target && room) &&
-    <div className='absolute bottom-16 md:bottom-5 max-w-md w-1/3 min-w-max mx-auto inset-x-0'>
+    <div className='absolute bottom-16 max-w-md w-1/3 min-w-max mx-auto inset-x-0'>
       <Card className='flex py-3 px-6 justify-between space-x-5'>
         <div className='flex space-x-3'>
           {createElement(
@@ -50,7 +50,6 @@ function TargetCard({target, setTarget, schemeRooms, search}) {
           <Button
             size='sm'
             color='primary'
-            disabled={search.to.target === target}
             onClick={() => {
               setTarget(null)
             }}

@@ -5,7 +5,7 @@ import React from 'react'
  * @param {object} props Дополнительные свойства
  * @returns {JSX.Element} Иконка купюры
  */
-function Money(props) {
+function MoneyIcon(props) {
   return (
     <svg {...props} width="24" height="17" viewBox="0 0 24 17" fill="none" xmlns="http://www.w3.org/2000/svg">
       <path d="M23.2931 0.852277C21.8385 0.234888 20.3828 4.56404e-08 18.9278 4.56404e-08C14.309 -0.000379419 9.6906
@@ -24,4 +24,4 @@ function Money(props) {
   )
 }
 
-export default Money
+export default MoneyIcon

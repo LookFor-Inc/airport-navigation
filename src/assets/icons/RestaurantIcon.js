@@ -5,7 +5,7 @@ import React from 'react'
  * @param {object} props Дополнительные свойства
  * @returns {JSX.Element} Иконка ресторана
  */
-function Restaurant(props) {
+function RestaurantIcon(props) {
   return (
     <svg {...props} width="25" height="24" viewBox="0 0 25 24" fill="none" xmlns="http://www.w3.org/2000/svg">
       <path d="M13.2353 7.38281C13.2353 5.95312 12.6425 2.79844 12.5184 2.14687C12.2932 0.942187 11.2178 0 9.67831
@@ -29,4 +29,4 @@ function Restaurant(props) {
   )
 }
 
-export default Restaurant
+export default RestaurantIcon

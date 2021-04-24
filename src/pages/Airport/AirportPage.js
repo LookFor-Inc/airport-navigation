@@ -9,7 +9,7 @@ import withSchemePage from '@/pages/Airport/withSchemePage'
  */
 function AirportPage() {
   return (
-    <div className='bg-gray-50 h-screen'>
+    <div className=''>
       <NavigationProvider>
         <NavigationView />
       </NavigationProvider>

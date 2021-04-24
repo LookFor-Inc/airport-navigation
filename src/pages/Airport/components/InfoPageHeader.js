@@ -6,7 +6,7 @@ import TerminalLogo from '@/pages/Airport/components/TerminalLogo'
 
 function InfoPageHeader({time}) {
   return (
-    <div className='flex flex-col items-center'>
+    <div className='flex flex-col items-center bg-gray-100'>
       <div className='inline-flex flex-col'>
         <TerminalLogo className='self-start' terminalName='Терминал Д'/>
         <ExtraInfoButton

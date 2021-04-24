@@ -106,3 +106,7 @@
 .top-shadow {
   box-shadow: 0 -2px 5px rgb(224, 224, 224);
 }
+
+.min-width {
+  min-width: 4rem;
+}

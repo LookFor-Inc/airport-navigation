@@ -5,7 +5,7 @@ import React from 'react'
  * @param {object} props Дополнительные свойства
  * @returns {JSX.Element} Иконка багажа
  */
-function Baggage(props) {
+function BaggageIcon(props) {
   return (
     <svg {...props} width="18" height="24" viewBox="0 0 18 24" fill="none" xmlns="http://www.w3.org/2000/svg">
       <path d="M6.75 2.25H11.25V7.5H13.5V2.25C13.5 1.65326 13.2629 1.08097 12.841 0.65901C12.419 0.237053 11.8467 0
@@ -35,4 +35,4 @@ function Baggage(props) {
   )
 }
 
-export default Baggage
+export default BaggageIcon

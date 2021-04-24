@@ -5,7 +5,7 @@ import React from 'react'
  * @param {object} props Дополнительные свойства
  * @returns {JSX.Element} Иконка туалета
  */
-function Toilet(props) {
+function ToiletIcon(props) {
   return (
     <svg {...props} width="30" height="24" viewBox="0 0 30 24" fill="none" xmlns="http://www.w3.org/2000/svg">
       <path d="M15.375 0H14.625C14.2125 0 13.875 0.3375 13.875 0.75V23.25C13.875 23.6625 14.2125 24 14.625
@@ -30,4 +30,4 @@ function Toilet(props) {
   )
 }
 
-export default Toilet
+export default ToiletIcon

@@ -1,6 +1,6 @@
 import React, {createContext, useContext, useState} from 'react'
 import PropTypes from 'prop-types'
-import {registration} from '@/data/checkpoints'
+import {entrance} from '@/data/checkpoints'
 
 const CheckpointsContext = createContext(null)
 
@@ -10,7 +10,7 @@ const CheckpointsContext = createContext(null)
  * @returns {JSX.Element} Provider
  */
 const CheckpointsProvider = ({children}) => {
-  const [checkpoint, setCheckpoint] = useState(registration)
+  const [checkpoint, setCheckpoint] = useState(entrance)
 
   return (
     <CheckpointsContext.Provider value={{checkpoint, setCheckpoint}}>

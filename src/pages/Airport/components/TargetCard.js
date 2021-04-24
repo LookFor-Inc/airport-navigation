@@ -39,21 +39,22 @@ function TargetCard({target, setTarget, setSearchTo, setSearchFrom, schemeRooms,
 
   return <>
     {(target && room) &&
-    <div className="absolute bottom-16 max-w-md w-1/3 min-w-max mx-auto inset-x-0">
-      <Card className="flex py-3 px-6 justify-between space-x-5">
-        <div className="flex space-x-3">
+    <div className='absolute bottom-16 max-w-md w-1/3 min-w-max mx-auto inset-x-0'>
+      {checkpoint.available.includes(room.target) &&
+      <Card className='flex py-3 px-6 justify-between space-x-5'>
+        <div className='flex space-x-3'>
           {createElement(
             iconRoomType[room.type] ? iconRoomType[room.type] : 'div',
             {className: 'self-center text-gray-600 h-7'}
           )}
-          <h1 className="self-center text-coolGray-600 font-medium">
+          <h1 className='self-center text-coolGray-600 font-medium'>
             {room.title}
           </h1>
         </div>
-        <div className="flex space-x-5">
+        <div className='flex space-x-5'>
           <Button
-            size="sm"
-            color="primary"
+            size='sm'
+            color='primary'
             onClick={() => {
               setSearchFrom(checkpoint.target, checkpoint.title)
               setSearchTo(room.target, room.title)
@@ -64,6 +65,12 @@ function TargetCard({target, setTarget, setSearchTo, setSearchFrom, schemeRooms,
           </Button>
         </div>
       </Card>
+      }
+      {!checkpoint.available.includes(room.target) &&
+      <Card className='py-3 px-6 space-x-5 bg-red-500 text-white text-center'>
+        Вы не можете пройти сюда
+      </Card>
+      }
     </div>
     }
   </>

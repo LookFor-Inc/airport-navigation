@@ -11,14 +11,14 @@ import withSchemePage from '@/pages/Airport/withSchemePage'
  */
 function AirportPage() {
   return (
-    <div>
+    <>
       <WayFinding />
       <CheckpointsProvider>
         <NavigationProvider>
           <NavigationView />
         </NavigationProvider>
       </CheckpointsProvider>
-    </div>
+    </>
   )
 }
 

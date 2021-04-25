@@ -1,5 +1,5 @@
 import React from 'react'
-import FastActions from '@/pages/Airport/components/FastActions'
+import FastActions from '@/pages/Airport/components/FastActions/FastActions'
 
 /**
  * Body

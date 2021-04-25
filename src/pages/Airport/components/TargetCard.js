@@ -7,6 +7,7 @@ import GymIcon from '@/assets/icons/RoomType/GymIcon'
 import WCIcon from '@/assets/icons/RoomType/WCIcon'
 import Button from '@/components/Button'
 import Card from '@/components/Card/Card'
+import {getPathLength} from '@/handlers/api/pathHandler'
 import {getRoomByTarget} from '@/handlers/api/schemeHandler'
 import {useCheckpoints} from '@/pages/Airport/components/BottomNavigation/CheckpointsProvider'
 import {selectSchemeRooms} from '@/pages/Airport/selectors'
@@ -29,13 +30,18 @@ const iconRoomType = {
  * @param {object} search Форма заполнения маршрута
  * @returns {JSX.Element} Элемент карточки выбора куда строить маршрут
  */
-function TargetCard({target, setTarget, setSearchTo, setSearchFrom, schemeRooms, search}) {
+function TargetCard({target, setTarget, setSearchTo, setSearchFrom, schemeRooms, search, wayfindingPath}) {
   const {checkpoint} = useCheckpoints()
   const [room, setRoom] = useState({})
+  const [time, setTime] = useState(null)
 
   useEffect(() => {
     setRoom(getRoomByTarget(schemeRooms, target))
   }, [target])
+
+  useEffect(() => {
+    setTime(getPathLength(wayfindingPath))
+  }, [wayfindingPath])
 
   return <>
     {(target && room) &&
@@ -73,6 +79,13 @@ function TargetCard({target, setTarget, setSearchTo, setSearchFrom, schemeRooms,
       }
     </div>
     }
+    {(time && !target && !room) &&
+    <div className='absolute bottom-16 max-w-md w-1/3 min-w-max mx-auto inset-x-0'>
+      <Card className='py-3 px-6 space-x-5 text-center'>
+        Вам потребуется ~{time} мин.
+      </Card>
+    </div>
+    }
   </>
 }
 
@@ -82,7 +95,8 @@ TargetCard.propTypes = {
   setSearchTo: PropTypes.func,
   setSearchFrom: PropTypes.func,
   schemeRooms: PropTypes.array,
-  search: PropTypes.object
+  search: PropTypes.object,
+  wayfindingPath: PropTypes.arrayOf(PropTypes.object)
 }
 
 /**
@@ -94,7 +108,8 @@ const targetCardState = state => {
   return {
     schemeRooms: selectSchemeRooms(state),
     search: state.search,
-    target: state.map.target
+    target: state.map.target,
+    wayfindingPath: state.path
   }
 }
 

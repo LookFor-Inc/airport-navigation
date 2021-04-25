@@ -32,7 +32,8 @@ function UserPosition({mapViewBox, userX, userY, userZ, currentFloor}) {
             begin='0s'
             dur='2s'
             repeatCount='indefinite'
-            from='2' to='50'
+            from='2'
+            to='50'
           />
         </circle>
       </svg>

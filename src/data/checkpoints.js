@@ -33,7 +33,8 @@ export const registration = {
     'aud10',
     'aud11',
     'aud12',
-    'aud23'
+    'aud23',
+    'wc1'
   ],
   next: customs,
   status: waiting

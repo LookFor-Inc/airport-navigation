@@ -51,7 +51,7 @@ function MainPage() {
       <Content className='flex flex-col justify-center items-center space-y-5'>
         <SvoIcon className='w-full max-w-md h-20' />
         <h1 className='font-bold text-2xl text-center'>
-          Персональный ассистен
+          Персональный ассистент
         </h1>
         <p className='text-gray-800 mb-24 text-center text-sm'>
           Помощь по навигации и учёту времени в аэропорту.

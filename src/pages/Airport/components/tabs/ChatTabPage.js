@@ -60,10 +60,10 @@ function ChatTabPage() {
           Онлайн-чат
         </div>
       </Navbar>
-      <div className='mt-14 mb-24'>
+      <div className='mt-16 mb-26'>
         <Content
           className='overflow-scroll'
-          style={{height: 'calc(100vh - 167px)'}}
+          style={{height: 'calc(100vh - 176px)'}}
         >
           {messages.map((message, idx) => (
             <Message

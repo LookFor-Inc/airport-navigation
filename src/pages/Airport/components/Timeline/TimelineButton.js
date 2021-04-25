@@ -12,6 +12,8 @@ import {setSearchFrom, setSearchTo} from '@/store/Scheme/actions'
  * @param {JSXElement} Icon Иконка(компонент)
  * @param {string} text Текст для кнопки
  * @param {string} color Цвет иконки
+ * @param {function} setSearchFrom Функция установки 'Откуда'
+ * @param {function} setSearchTo Функция установки 'Куда'
  * @returns {JSX.Element} Компонент кнопки с текстом и иконкой
  */
 function TimelineButton({icon, text, color, activeCheckpoint, setSearchTo, setSearchFrom, ...props}) {

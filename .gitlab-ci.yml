@@ -58,9 +58,6 @@ build_docker:
   stage: image
   services:
     - docker:dind
-  before_script:
-    - chmod +x ./setup_env.sh
-    - sh ./setup_env.sh
   script:
     - docker login -u $CI_REGISTRY_USER -p $CI_REGISTRY_PASSWORD $CI_REGISTRY
     - docker build -t $CI_REGISTRY_IMAGE --build-arg NO_BUILD=true .
@@ -83,20 +80,5 @@ deploy_heroku:
     - docker push $HEROKU_REGISTRY/$HEROKU_APP_NAME/web
     - docker run --rm -e HEROKU_API_KEY=$HEROKU_AUTH_TOKEN wingrunr21/alpine-heroku-cli container:release web --app $HEROKU_APP_NAME
   dependencies: []
-  only:
-    - master
-
-pages:
-  image: ruby:latest
-  stage: deploy
-  script:
-    - rm -rf public
-    - cp build/index.html build/404.html
-    - mv build public
-  artifacts:
-    paths:
-      - public
-  dependencies:
-    - build_node
   only:
     - master

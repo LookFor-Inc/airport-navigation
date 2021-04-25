@@ -96,7 +96,7 @@ const TERMINAL_D_FLOORS = {
             '0-1c0e'
           ]
         },
-        'aud2': {
+        'mon': {
           'title': 'Обмен валют',
           'mainId': '0-2c',
           'ids': [

@@ -13,7 +13,7 @@ import Button from '@/components/Button'
 function IconButton({icon, className, ...props}) {
   const btnClasses = classNames('inline-flex p-2 border-0', className)
   return (
-    <Button className={btnClasses} {...props}>
+    <Button type='button' className={btnClasses} {...props}>
       {icon}
     </Button>
   )

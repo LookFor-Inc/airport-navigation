@@ -1,7 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import {connect} from 'react-redux'
-import SearchIcon from '@/assets/SearchIcon'
+import SearchIcon from '@/assets/icons/SearchIcon'
 import IconButton from '@/components/IconButton'
 import {getFloorNumByRoomTarget} from '@/handlers/api/schemeHandler'
 import convertRoomsToAutocompleteFormat from '@/helpers/dataConverters'
@@ -29,6 +29,7 @@ function SearchNavbar({srcScheme, schemeRooms, setFloorNum, setTarget}) {
   return (
     <div className='fixed inset-x-0 w-screen md:w-96 z-30'>
       <div className='static bg-white md:rounded-br-lg py-2 md:py-5 px-5 shadow-md'>
+        <h1 className='hidden md:block font-medium text-xl'>Терминал Д</h1>
         <div className='flex md:pt-5 space-x-2'>
           {autocompleteFind.bind}
           <IconButton

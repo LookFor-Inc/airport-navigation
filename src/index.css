@@ -45,16 +45,15 @@
   }
 
   .input {
-    @apply w-full py-3 px-4 rounded-md
+    @apply w-full py-3 px-4 rounded-md border border-gray-300
     bg-white text-gray-700 placeholder-gray-400
     shadow-sm text-base
   }
 
   .btn {
     @apply py-2 px-4
-    border border-gray-300
     flex items-center justify-center
-    text-gray-700 hover:bg-gray-200
+    text-gray-700
     text-base font-medium
     transition-colors
     rounded-md

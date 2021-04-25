@@ -21,7 +21,7 @@ const iconRoomType = {
 }
 
 const METER_PIXEL = 11.3248
-const METER_MINUTES_SPEED = 83.3333
+const METER_MINUTES_SPEED = 51.3333
 
 /**
  * Карточка выбора аудитории схемы

@@ -16,8 +16,8 @@ function FastActions() {
       </div>
       <div className='overflow-x-auto mx-auto px-6 pt-3'>
         <div className='flex space-x-4 sm:justify-between'>
-          {fastActions.map(({icon, name}, id) => (
-            <FastActionButton Icon={icon} name={name} key={id}/>
+          {fastActions.map(({icon, name, type}, id) => (
+            <FastActionButton Icon={icon} name={name} type={type} key={id}/>
           ))}
         </div>
       </div>

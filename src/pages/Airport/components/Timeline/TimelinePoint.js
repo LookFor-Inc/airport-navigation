@@ -13,7 +13,7 @@ import CheckIcon from '@/assets/icons/CheckIcon'
  * @constructor
  */
 function TimelinePoint({type, id, length, ...props}) {
-  const pointClasses = classNames('w-4 h-4 top-1/2 -mt-3 rounded-full absolute', {
+  const pointClasses = classNames('absolute flex w-4 h-4 top-1/2 -mt-3 rounded-full', {
     'bg-primary': type === 'active',
     'bg-error': type === 'error',
     'bg-gray-400': type === 'disable',

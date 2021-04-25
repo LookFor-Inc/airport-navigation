@@ -2,6 +2,7 @@ import CustomsIcon from '@/assets/icons/CustomsIcon'
 import PassportControlIcon from '@/assets/icons/PassportControlIcon'
 import ReceptionIcon from '@/assets/icons/ReceptionIcon'
 import TruckIcon from '@/assets/icons/TruckIcon'
+import {customs, entrance, passportControl, registration} from '@/data/checkpoints'
 
 export const PEOPLE_AMOUNT_STATUS = {
   LESS: 'Мало людей',
@@ -15,27 +16,27 @@ export const timelineRules = [
     stepName: 'Регистрация',
     time: '17:50',
     peopleStatus: PEOPLE_AMOUNT_STATUS.LESS,
-    type: 'checked'
+    activeCheckpoint: entrance
   },
   {
     subIcon: CustomsIcon,
-    stepName: 'Таможня',
+    stepName: 'Таможенный контроль',
     time: '18:15',
     peopleStatus: PEOPLE_AMOUNT_STATUS.LESS,
-    type: 'checked'
+    activeCheckpoint: registration
   },
   {
     subIcon: PassportControlIcon,
     stepName: 'Паспортный контроль',
     time: '18:30',
     peopleStatus: PEOPLE_AMOUNT_STATUS.NORM,
-    type: 'active'
+    activeCheckpoint: customs
   },
   {
     subIcon: TruckIcon,
     stepName: 'Посадка',
     time: '18:40',
     peopleStatus: PEOPLE_AMOUNT_STATUS.MANY,
-    type: 'error'
+    activeCheckpoint: passportControl
   }
 ]

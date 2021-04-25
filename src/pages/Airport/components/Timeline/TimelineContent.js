@@ -11,9 +11,10 @@ import TimelineButton from '@/pages/Airport/components/Timeline/TimelineButton'
  * @param {string} stepName Наименование этапа
  * @param {string} time Вермя
  * @param {string} peopleStatus Статус по количеству людей
+ * @param {Object} activeCheckpoint Активный чек-поитн
  * @returns {JSX.Element} Компонент для отображение описание этапа timeline
  */
-function TimelineContent({stepName, time, peopleStatus}) {
+function TimelineContent({stepName, time, peopleStatus, activeCheckpoint}) {
   const formatTime = 'До ' + time
   const statusClasses = classNames('leading-tight text-justify pl-1 text-xs sm:text-sm flex space-x-2', {
     'text-green-500': peopleStatus === PEOPLE_AMOUNT_STATUS.LESS,
@@ -40,21 +41,20 @@ function TimelineContent({stepName, time, peopleStatus}) {
   }, [peopleStatus])
 
   return (
-    <div className="col-end-10 w-full my-4">
-      <div className="flex justify-between font-semibold text-sm text-gray-700 mb-1">
-        <TimelineButton text={stepName} icon={ChevronRightIcon} />
-        <div className="flex flex-col flex-none justify-center">
-          <p className="text-overflow text-xs font-bold text-center">
+    <div className='col-end-10 w-full my-4'>
+      <div className='flex justify-between font-semibold text-sm text-gray-700 mb-1'>
+        <TimelineButton text={stepName} icon={ChevronRightIcon} activeCheckpoint={activeCheckpoint} />
+        <div className='flex flex-col flex-none justify-center'>
+          <p className='text-overflow text-xs font-bold text-center'>
             {formatTime}
           </p>
         </div>
       </div>
       <div className={statusClasses}>
-        {/* <PersonIcon className='flex' />*/}
-        <div className="flex">
+        <div className='flex'>
           {[...Array(peopleNum)].map((e, i) => <PersonIcon key={i} />)}
         </div>
-        <div className="flex">
+        <div className='flex'>
           {peopleStatus}
         </div>
       </div>
@@ -65,7 +65,8 @@ function TimelineContent({stepName, time, peopleStatus}) {
 TimelineContent.propTypes = {
   stepName: PropTypes.string,
   time: PropTypes.string,
-  peopleStatus: PropTypes.string
+  peopleStatus: PropTypes.string,
+  activeCheckpoint: PropTypes.object
 }
 
 export default TimelineContent

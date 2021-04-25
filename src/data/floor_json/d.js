@@ -1,5 +1,10 @@
 const TERMINAL_D_FLOORS = {
   floors: {
+    '1': {
+      'url': '/svg/d/1.svg',
+      'rooms': [],
+      'vertices': []
+    },
     '2': {
       'url': '/svg/d/2.svg',
       'rooms': {
@@ -1689,6 +1694,11 @@ const TERMINAL_D_FLOORS = {
           ]
         }
       }
+    },
+    '4': {
+      'url': '/svg/d/4.svg',
+      'rooms': [],
+      'vertices': []
     }
   }
 }

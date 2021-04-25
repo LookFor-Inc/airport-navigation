@@ -11,12 +11,13 @@ import TimelineButton from '@/pages/Airport/components/Timeline/TimelineButton'
  * @param {string} stepName Наименование этапа
  * @param {string} time Вермя
  * @param {string} peopleStatus Статус по количеству людей
+ * @param {number} minToSpend Время, которое может пользователь потратить в очереди
  * @param {Object} activeCheckpoint Активный чек-поитн
  * @returns {JSX.Element} Компонент для отображение описание этапа timeline
  */
-function TimelineContent({stepName, time, peopleStatus, activeCheckpoint}) {
+function TimelineContent({stepName, time, peopleStatus, minToSpend, activeCheckpoint}) {
   const formatTime = 'До ' + time
-  const statusClasses = classNames('leading-tight text-justify pl-1 text-xs sm:text-sm flex space-x-2', {
+  const statusClasses = classNames('leading-tight text-justify pl-1 text-xs sm:text-sm flex space-x-2 mb-2', {
     'text-green-500': peopleStatus === PEOPLE_AMOUNT_STATUS.LESS,
     'text-yellow-500': peopleStatus === PEOPLE_AMOUNT_STATUS.NORM,
     'text-red-500': peopleStatus === PEOPLE_AMOUNT_STATUS.MANY
@@ -43,7 +44,11 @@ function TimelineContent({stepName, time, peopleStatus, activeCheckpoint}) {
   return (
     <div className='col-end-10 w-full my-4'>
       <div className='flex justify-between font-semibold text-sm text-gray-700 mb-1'>
-        <TimelineButton text={stepName} icon={ChevronRightIcon} activeCheckpoint={activeCheckpoint} />
+        <TimelineButton
+          text={stepName}
+          icon={ChevronRightIcon}
+          activeCheckpoint={activeCheckpoint}
+        />
         <div className='flex flex-col flex-none justify-center'>
           <p className='text-overflow text-xs font-bold text-center'>
             {formatTime}
@@ -58,6 +63,9 @@ function TimelineContent({stepName, time, peopleStatus, activeCheckpoint}) {
           {peopleStatus}
         </div>
       </div>
+      <div className='text-xs'>
+        Очередь ~{minToSpend} мин.
+      </div>
     </div>
   )
 }
@@ -66,6 +74,7 @@ TimelineContent.propTypes = {
   stepName: PropTypes.string,
   time: PropTypes.string,
   peopleStatus: PropTypes.string,
+  minToSpend: PropTypes.number,
   activeCheckpoint: PropTypes.object
 }
 

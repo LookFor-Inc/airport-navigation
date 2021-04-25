@@ -36,7 +36,7 @@ function TimelineButton({icon, text, color, activeCheckpoint, setSearchTo, setSe
       onClick={() => {
         setSearchFrom(activeCheckpoint.target, activeCheckpoint.title)
         activeCheckpoint.status = completed
-        if ((typeof activeCheckpoint.next)!=='object') {
+        if ((typeof activeCheckpoint.next) !== 'object') {
           setSearchTo(activeCheckpoint.next, '')
         } else {
           setSearchTo(activeCheckpoint.next.target, activeCheckpoint.next.title)

@@ -16,7 +16,9 @@ export const timelineRules = [
     stepName: 'Регистрация',
     time: '17:50',
     peopleStatus: PEOPLE_AMOUNT_STATUS.LESS,
-    activeCheckpoint: entrance
+    activeCheckpoint: entrance,
+    infoText: 'Стойки',
+    infoNumbers: '№24-27'
   },
   {
     subIcon: CustomsIcon,
@@ -37,6 +39,8 @@ export const timelineRules = [
     stepName: 'Посадка',
     time: '18:40',
     peopleStatus: PEOPLE_AMOUNT_STATUS.MANY,
-    activeCheckpoint: passportControl
+    activeCheckpoint: passportControl,
+    infoText: 'Выход',
+    infoNumbers: '№20'
   }
 ]

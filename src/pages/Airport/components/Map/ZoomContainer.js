@@ -7,7 +7,7 @@ import {saveTransform} from '@/store/Scheme/actions'
 import {useMap} from './MapProvider'
 
 const delta = 0.5
-const scaleExtent = [0.5, 20]
+const scaleExtent = [1.5, 25]
 
 /**
  * Контейнер масштабирования карты

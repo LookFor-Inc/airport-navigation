@@ -52,9 +52,8 @@
 
   .btn {
     @apply py-2 px-4
-    border border-gray-300
     flex items-center justify-center
-    text-gray-700 hover:bg-gray-200
+    text-gray-700
     text-base font-medium
     transition-colors
     rounded-md
@@ -108,4 +107,8 @@
 
 .max-w-xs {
   max-width: 18rem;
+}
+
+.min-width {
+  min-width: 4rem;
 }

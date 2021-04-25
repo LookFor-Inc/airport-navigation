@@ -22,6 +22,12 @@ export function fetchSchemeAsync(id) {
   }
 }
 
+/**
+ * Успешное загрузка схемы
+ * @param {number} id Id схемы
+ * @param {*} jsonData Данные о схеме
+ * @returns {{payload: {data, id}, type: string}} Action creator
+ */
 export function fetchSchemeFulfilled(id, jsonData) {
   return {
     type: FETCH_SCHEME_FULFILLED,
@@ -32,6 +38,11 @@ export function fetchSchemeFulfilled(id, jsonData) {
   }
 }
 
+/**
+ * Ошибка при загрузки схемы
+ * @param {number} id Id схемы
+ * @returns {{payload: {id}, type: string}} Action creator
+ */
 export function fetchSchemeRejected(id) {
   return {
     type: FETCH_SCHEME_REJECTED,

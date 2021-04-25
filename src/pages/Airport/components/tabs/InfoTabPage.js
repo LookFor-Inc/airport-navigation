@@ -1,4 +1,6 @@
 import React from 'react'
+import InfoTabHeader from '@/pages/Airport/components/InfoPageHeader'
+import InfoTabBody from '@/pages/Airport/components/InfoTabBody'
 
 /**
  * Вкладка инфо
@@ -6,7 +8,10 @@ import React from 'react'
  */
 function InfoTabPage() {
   return (
-    <></>
+    <div className='overflow-y-scroll' style={{height: 'calc(100vh - 60px)'}}>
+      <InfoTabHeader/>
+      <InfoTabBody />
+    </div>
   )
 }
 

@@ -5,13 +5,14 @@ import PropTypes from 'prop-types'
 /**
  * Общий компонент кнопки
  * @param {element} children Дочерние элементы
+ * @param {string} type Тип
  * @param {string} size Размер кнопки
  * @param {string} color Цвет кнопки
  * @param {boolean} disabled Состояние блокировки
  * @param {object} props Дополнительные свойства
  * @returns {JSX.Element} Кнопка
  */
-function Button({children, size, color, disabled, ...props}) {
+function Button({children, type, size, color, disabled, ...props}) {
   const classes = classNames('btn', {
     'btn-primary': color === 'primary',
     'btn-secondary text-primary': color === 'secondary',
@@ -25,7 +26,7 @@ function Button({children, size, color, disabled, ...props}) {
   return (
     <button
       {...props}
-      type='button'
+      type={type}
       className={classes}
       disabled={disabled}
     >
@@ -36,6 +37,7 @@ function Button({children, size, color, disabled, ...props}) {
 
 Button.propTypes = {
   children: PropTypes.node,
+  type: PropTypes.string,
   size: PropTypes.oneOf(['xs', 'sm', 'md', 'lg']),
   color: PropTypes.string,
   disabled: PropTypes.bool,

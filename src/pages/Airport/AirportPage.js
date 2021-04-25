@@ -6,7 +6,7 @@ import NavigationView from '@/pages/Airport/NavigationView'
 import withSchemePage from '@/pages/Airport/withSchemePage'
 
 /**
- * Страница схемы
+ * Страница с информацией
  * @returns {JSX.Element} Элемент страницы схемы
  */
 function AirportPage() {

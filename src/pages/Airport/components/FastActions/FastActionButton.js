@@ -1,6 +1,12 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
+/**
+ * Быстрые действия
+ * @param {*} Icon Иконка
+ * @param {String} name Заголовок
+ * @returns {JSX.Element} Элемент
+ */
 function FastActionsButton({Icon, name}) {
   return (
     <button className='self-start'>

@@ -6,13 +6,14 @@ import PropTypes from 'prop-types'
  * Компонент(контент) для задания структуры веб-страницы
  * @param {JSX.Element} children Дочерний компонент для отображения содержимого
  * @param {string} className дополнительные стили
+ * @param {object} props Дополнительные свойства
  * @returns {JSX.Element} Компонент контента
  */
-function Content({children, className}) {
+function Content({children, className, ...props}) {
   const classes = classNames('container mx-auto py-6 px-4 sm:px-6 lg:px-8 max-w-7xl', className)
 
   return (
-    <div className={classes}>
+    <div {...props} className={classes}>
       {children}
     </div>
   )

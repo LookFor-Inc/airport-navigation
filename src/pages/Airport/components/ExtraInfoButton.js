@@ -14,10 +14,15 @@ import PropTypes from 'prop-types'
  */
 function ExtraInfoButton({Icon, text, extraData, color, ...props}) {
   const classes = classNames('flex justify-between btn select-none', {
+    'bg-green-500': color === 'ok',
     'btn-error': color === 'error',
     'bg-pink-500 hover:bg-pink-700': color === 'pink',
     'space-x-4': typeof extraData === 'string'
   }, props.className)
+
+  const timeClasses = classNames('text-sm', {
+    'text-white': color === 'ok'
+  })
 
   return (
     <button className={classes}>
@@ -26,7 +31,7 @@ function ExtraInfoButton({Icon, text, extraData, color, ...props}) {
         <span className='text-sm text-white text-center'>{text}</span>
       </div>
       <div className='flex'>
-        {typeof extraData === 'string' && <span className='text-sm'>{extraData}</span>}
+        {typeof extraData === 'string' && <span className={timeClasses}>{extraData}</span>}
         {typeof extraData === 'function' && createElement(extraData, {className: 'text-white'})}
       </div>
     </button>

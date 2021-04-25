@@ -16,7 +16,7 @@ function Timeline() {
         Порядок действий
       </p>
       <div className='flex flex-col'>
-        {timelineRules.map(({subIcon, stepName, time, peopleStatus, activeCheckpoint}, id) => {
+        {timelineRules.map(({subIcon, stepName, time, peopleStatus, activeCheckpoint, infoText, infoNumbers}, id) => {
           // ToDo: сделать проверку на время
           const type = activeCheckpoint.status === completed
             ? 'checked'
@@ -39,6 +39,8 @@ function Timeline() {
                 time={time}
                 peopleStatus={peopleStatus}
                 activeCheckpoint={activeCheckpoint}
+                infoText={infoText}
+                infoNumbers={infoNumbers}
               />
             </div>
           )

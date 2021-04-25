@@ -8,8 +8,8 @@ import InfoTabBody from '@/pages/Airport/components/InfoTabBody'
  */
 function InfoTabPage() {
   return (
-    <div className='overflow-y-scroll bg-gray-50' style={{height: 'calc(100vh - 60px)'}}>
-      <InfoTabHeader/>
+    <div className='overflow-y-scroll' style={{height: 'calc(100vh - 60px)'}}>
+      <InfoTabHeader />
       <InfoTabBody />
     </div>
   )

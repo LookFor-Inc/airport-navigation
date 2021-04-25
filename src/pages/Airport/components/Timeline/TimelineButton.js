@@ -11,7 +11,7 @@ import PropTypes from 'prop-types'
  */
 function TimelineButton({icon, text, color, ...props}) {
   const classes = classNames(
-    'flex items-center justify-end font-bold text-gray-800 rounded-md p-1 hover:bg-gray-100',
+    'flex items-center justify-end font-bold text-gray-800 rounded-md p-1 hover:bg-gray-100 sm:text-xl',
     props.className)
 
   const iconClasses = classNames('ml-2 h-4 w-3', {
@@ -25,7 +25,7 @@ function TimelineButton({icon, text, color, ...props}) {
       className={classes}
       type='button'
     >
-      {text}
+      <p className='break-all line-clamp-1'>{text}</p>
       {createElement(icon, {className: iconClasses})}
     </button>
   )

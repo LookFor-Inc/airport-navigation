@@ -10,7 +10,7 @@ import TimelinePointIcon from '@/pages/Airport/components/Timeline/TimilinePoint
  */
 function Timeline() {
   return (
-    <div className="container">
+    <div className="container px-8 mx-auto">
       <div className="flex flex-col">
         {timelineRules.map(({subIcon, stepName, time, rules}, id) => (
           <div className="flex" key={id}>

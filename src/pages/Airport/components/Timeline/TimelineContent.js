@@ -11,14 +11,17 @@ import TimelineButton from '@/pages/Airport/components/Timeline/TimelineButton'
  * @returns {JSX.Element} Компонент для отображение описание этапа timeline
  */
 function TimelineContent({stepName, time, rules}) {
+  const formatTime = 'До ' + time
   return (
     <div className="col-end-10 w-full my-4">
       <div className='flex justify-between font-semibold text-lg text-gray-700 mb-1'>
         <TimelineButton text={stepName} icon={ChevronRightIcon}/>
-        <h3>до {time}</h3>
+        <div className='flex flex-col flex-none justify-center'>
+          <p className='text-overflow text-sm font-bold text-center sm:text-xl'>{formatTime}</p>
+        </div>
       </div>
       {rules.map((rule, id) => (
-        <p className="leading-tight text-justify pl-1" key={id}>
+        <p className="leading-tight text-justify pl-1 text-xs sm:text-sm" key={id}>
           {rule}
         </p>
       ))}

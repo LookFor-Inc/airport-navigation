@@ -7,7 +7,7 @@ import React from 'react'
  */
 function RocketIcon(props) {
   return (
-    <svg {...props} width='24' height='26' viewBox='0 0 24 26' fill='currentColor' xmlns='http://www.w3.org/2000/svg'>
+    <svg {...props} width='18' height='20' viewBox='0 0 24 26' fill='currentColor' xmlns='http://www.w3.org/2000/svg'>
       <path d='M1.67275 17.8558C0.46068 19.1671 -0.138257 22.4471 0.0269953 25.9373C3.26677 26.1178 6.29002 25.463
       7.49723 24.1569C9.38578 22.114 9.50708 19.3901 7.79304 17.5358C6.07908 15.6816 3.56111 15.8129 1.67275 17.8558Z
       M5.49928 22.1177C5.09681 22.553 4.08909 22.7712 3.00932 22.711C2.9543 21.5478 3.15388 20.4545 3.5579 20.0175

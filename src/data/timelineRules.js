@@ -4,33 +4,43 @@ import ReceptionIcon from '@/assets/icons/ReceptionIcon'
 import TruckIcon from '@/assets/icons/TruckIcon'
 import {customs, entrance, passportControl, registration} from '@/data/checkpoints'
 
+export const PEOPLE_AMOUNT_STATUS = {
+  LESS: 'Мало людей',
+  NORM: 'Достаточно людей',
+  MANY: 'Много людей'
+}
+
 export const timelineRules = [
   {
     subIcon: ReceptionIcon,
     stepName: 'Регистрация',
     time: '17:50',
-    rules: ['Проверка документов', 'Cдача багажа'],
-    activeCheckpoint: entrance
+    peopleStatus: PEOPLE_AMOUNT_STATUS.LESS,
+    activeCheckpoint: entrance,
+    infoText: 'Стойки',
+    infoNumbers: '№24-27'
   },
   {
     subIcon: CustomsIcon,
-    stepName: 'Таможня',
+    stepName: 'Таможенный контроль',
     time: '18:15',
-    rules: ['Осмотр содержимого багажа', 'Прохождение металлодетектора', 'Запрет на пронос жидкости'],
+    peopleStatus: PEOPLE_AMOUNT_STATUS.LESS,
     activeCheckpoint: registration
   },
   {
     subIcon: PassportControlIcon,
     stepName: 'Паспортный контроль',
     time: '18:30',
-    rules: ['Проверка документов'],
+    peopleStatus: PEOPLE_AMOUNT_STATUS.NORM,
     activeCheckpoint: customs
   },
   {
     subIcon: TruckIcon,
     stepName: 'Посадка',
     time: '18:40',
-    rules: ['Проверка билета', 'Размещение пассажиров'],
-    activeCheckpoint: passportControl
+    peopleStatus: PEOPLE_AMOUNT_STATUS.MANY,
+    activeCheckpoint: passportControl,
+    infoText: 'Выход',
+    infoNumbers: '№20'
   }
 ]

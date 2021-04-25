@@ -1,9 +1,9 @@
 import React from 'react'
 
 /**
- * Икнока таможни
+ * Иконка таможни
  * @param {object} props Дополнительные свойтсва
- * @returns {JSX.Element} Икнока таможни
+ * @returns {JSX.Element} Иконка таможни
  */
 function CustomsIcon(props) {
   return (

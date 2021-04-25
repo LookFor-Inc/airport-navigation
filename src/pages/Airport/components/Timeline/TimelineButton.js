@@ -9,10 +9,11 @@ import {useNavigation} from '@/pages/Airport/components/BottomNavigation/Navigat
 import {setSearchFrom, setSearchTo} from '@/store/Scheme/actions'
 
 /**
- *
  * @param {JSXElement} Icon Иконка(компонент)
  * @param {string} text Текст для кнопки
  * @param {string} color Цвет иконки
+ * @param {function} setSearchFrom Функция установки 'Откуда'
+ * @param {function} setSearchTo Функция установки 'Куда'
  * @returns {JSX.Element} Компонент кнопки с текстом и иконкой
  */
 function TimelineButton({icon, text, color, activeCheckpoint, setSearchTo, setSearchFrom, ...props}) {
@@ -23,7 +24,7 @@ function TimelineButton({icon, text, color, activeCheckpoint, setSearchTo, setSe
     {'hover:bg-gray-0': activeCheckpoint.status === completed || activeCheckpoint.status === waiting},
     props.className)
 
-  const iconClasses = classNames('ml-2 h-4 w-3', {
+  const iconClasses = classNames('w-3 h-3 ml-1', {
     'text-error': color === 'error',
     'text-primary': color === 'primary'
   })

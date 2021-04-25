@@ -7,6 +7,7 @@ import GymIcon from '@/assets/icons/RoomType/GymIcon'
 import WCIcon from '@/assets/icons/RoomType/WCIcon'
 import Button from '@/components/Button'
 import Card from '@/components/Card/Card'
+import {getPathLength} from '@/handlers/api/pathHandler'
 import {getRoomByTarget} from '@/handlers/api/schemeHandler'
 import {useCheckpoints} from '@/pages/Airport/components/BottomNavigation/CheckpointsProvider'
 import {selectSchemeRooms} from '@/pages/Airport/selectors'
@@ -19,6 +20,9 @@ const iconRoomType = {
   gym: GymIcon
 }
 
+const METER_PIXEL = 11.3248
+const METER_MINUTES_SPEED = 51.3333
+
 /**
  * Карточка выбора аудитории схемы
  * @param {string} target Ключевое название помещения
@@ -29,29 +33,40 @@ const iconRoomType = {
  * @param {object} search Форма заполнения маршрута
  * @returns {JSX.Element} Элемент карточки выбора куда строить маршрут
  */
-function TargetCard({target, setTarget, setSearchTo, setSearchFrom, schemeRooms, search}) {
+function TargetCard({target, setTarget, setSearchTo, setSearchFrom, schemeRooms, search, wayfindingPath}) {
   const {checkpoint} = useCheckpoints()
   const [room, setRoom] = useState({})
+  const [distance, setDistance] = useState(null)
 
   useEffect(() => {
     setRoom(getRoomByTarget(schemeRooms, target))
   }, [target])
 
+  useEffect(() => {
+    const pathLength = getPathLength(wayfindingPath)
+    if (pathLength) {
+      setDistance({
+        time: Math.ceil(pathLength / METER_PIXEL / METER_MINUTES_SPEED),
+        length: (pathLength / METER_PIXEL).toFixed(2)
+      })
+    }
+  }, [wayfindingPath])
+
   return <>
     {(target && room) &&
-    <div className='absolute bottom-16 max-w-md w-1/3 min-w-max mx-auto inset-x-0'>
+    <div className='fixed bottom-16 max-w-md  mx-auto inset-x-0'>
       {checkpoint.available.includes(room.target) &&
       <Card className='flex py-3 px-6 justify-between space-x-5'>
-        <div className='flex space-x-3'>
+        <div className='flex space-x-3 items-center'>
           {createElement(
             iconRoomType[room.type] ? iconRoomType[room.type] : 'div',
-            {className: 'self-center text-gray-600 h-7'}
+            {className: 'self-center text-gray-600 h-7 flex-grow'}
           )}
-          <h1 className='self-center text-coolGray-600 font-medium'>
+          <h1 className='h-5 flex-shrink text-coolGray-600 font-medium line-clamp-1 break-all'>
             {room.title}
           </h1>
         </div>
-        <div className='flex space-x-5'>
+        <div className='flex-grow flex justify-end'>
           <Button
             size='sm'
             color='primary'
@@ -73,6 +88,16 @@ function TargetCard({target, setTarget, setSearchTo, setSearchFrom, schemeRooms,
       }
     </div>
     }
+    {(distance && !target && !room) &&
+    <div className='absolute bottom-16 max-w-md w-1/3 min-w-max mx-auto inset-x-0'>
+      <Card className='py-3 px-6 space-x-5'>
+        <p>
+          Вам потребуется времени: <b>~{distance.time} мин.</b><br />
+          Расстояние: <b>{distance.length} м.</b>
+        </p>
+      </Card>
+    </div>
+    }
   </>
 }
 
@@ -82,7 +107,8 @@ TargetCard.propTypes = {
   setSearchTo: PropTypes.func,
   setSearchFrom: PropTypes.func,
   schemeRooms: PropTypes.array,
-  search: PropTypes.object
+  search: PropTypes.object,
+  wayfindingPath: PropTypes.arrayOf(PropTypes.object)
 }
 
 /**
@@ -94,7 +120,8 @@ const targetCardState = state => {
   return {
     schemeRooms: selectSchemeRooms(state),
     search: state.search,
-    target: state.map.target
+    target: state.map.target,
+    wayfindingPath: state.path
   }
 }
 

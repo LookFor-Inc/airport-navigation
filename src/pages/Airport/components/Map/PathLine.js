@@ -62,7 +62,7 @@ function PathLine({sizes, wayfindingPath, floorNum}) {
         .map((pathLine, i) =>
           <path
             key={i}
-            className='map_path-line'
+            className="map_path-line"
             style={{strokeWidth: `${Math.max(k1, k2)}px`}}
             d={line(pathLine)}
           />

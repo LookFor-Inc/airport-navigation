@@ -1,9 +1,9 @@
 import React from 'react'
 
 /**
- * Икнока трака для посадки пассажиров
+ * Иконка трака для посадки пассажиров
  * @param {object} props Дополнительные свойтсва
- * @returns {JSX.Element} Икнока трака лдя посадки пассажиров
+ * @returns {JSX.Element} Иконка трака лдя посадки пассажиров
  */
 function TruckIcon(props) {
   return (

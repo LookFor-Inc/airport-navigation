@@ -20,6 +20,5 @@ export function filterFlights(type, from, to, fromDate, toDate) {
       }
     }
   })
-
-  return result.length === 1 && result[0] === undefined ? [] : result
+  return result.filter(flight => flight !== undefined)
 }

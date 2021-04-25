@@ -1,7 +1,19 @@
 import {getTerminalJsonData, isTerminalExist} from '@/handlers/api/terminalsHandler'
 import {
-  FETCH_SCHEME_FULFILLED, FETCH_SCHEME_REJECTED, HIDE_PROGRESS, RESET_PATH, SAVE_TRANSFORM, SET_FLOOR_NUM,
-  SET_FLOOR_FULL_DATA, SET_PATH, SET_SEARCH_FROM, SET_SEARCH_TO, CLEAR_SEARCH, SET_TARGET_FORM, SHOW_PROGRESS
+  FETCH_SCHEME_FULFILLED,
+  FETCH_SCHEME_REJECTED,
+  HIDE_PROGRESS,
+  RESET_PATH,
+  SAVE_TRANSFORM,
+  SET_FLOOR_NUM,
+  SET_FLOOR_FULL_DATA,
+  SET_PATH,
+  SET_SEARCH_FROM,
+  SET_SEARCH_TO,
+  CLEAR_SEARCH,
+  SET_TARGET_FORM,
+  SHOW_PROGRESS,
+  SET_USER_POSITION
 } from '../types'
 
 /**
@@ -26,7 +38,7 @@ export function fetchSchemeAsync(id) {
  * Успешное загрузка схемы
  * @param {number} id Id схемы
  * @param {*} jsonData Данные о схеме
- * @returns {{payload: {data, id}, type: string}} Action creator
+ * @returns {object} Action creator
  */
 export function fetchSchemeFulfilled(id, jsonData) {
   return {
@@ -41,7 +53,7 @@ export function fetchSchemeFulfilled(id, jsonData) {
 /**
  * Ошибка при загрузки схемы
  * @param {number} id Id схемы
- * @returns {{payload: {id}, type: string}} Action creator
+ * @returns {object} Action creator
  */
 export function fetchSchemeRejected(id) {
   return {
@@ -192,6 +204,22 @@ export function setFloorNum(num) {
     type: SET_FLOOR_NUM,
     payload: {
       num
+    }
+  }
+}
+
+/**
+ * Установка позиции пользователя на схеме
+ * @param {number} x Координата x
+ * @param {number} y Координата y
+ * @param {number} z Координата z (этаж)
+ * @returns {object} Action creator
+ */
+export function setUserPosition(x, y, z) {
+  return {
+    type: SET_USER_POSITION,
+    payload: {
+      x, y, z
     }
   }
 }

@@ -11,21 +11,37 @@ import TimelinePointIcon from '@/pages/Airport/components/Timeline/TimilinePoint
  */
 function Timeline() {
   return (
-    <div className="container px-8 mx-auto">
-      <div className="flex flex-col">
-        {timelineRules.map(({subIcon, stepName, time, rules, activeCheckpoint, status}, id) => {
+    <div className='px-6 pt-5 mx-auto'>
+      <p className='uppercase text-gray-500 font-semibold text-xs'>
+        Порядок действий
+      </p>
+      <div className='flex flex-col'>
+        {timelineRules.map(({subIcon, stepName, time, peopleStatus, activeCheckpoint, infoText, infoNumbers}, id) => {
           // ToDo: сделать проверку на время
           const type = activeCheckpoint.status === completed
             ? 'checked'
-            : ( activeCheckpoint.status === waiting
+            : (activeCheckpoint.status === waiting
               ? 'disable'
-              : ( time ? 'active' : 'error')
+              : (time ? 'active' : 'error')
             )
           return (
-            <div className="flex" key={id}>
-              <TimelinePointIcon Icon={subIcon}/>
-              <TimelinePoint type={type} id={id + 1} length={timelineRules.length}/>
-              <TimelineContent stepName={stepName} time={time} rules={rules} activeCheckpoint={activeCheckpoint}/>
+            <div className='flex' key={id}>
+              <TimelinePointIcon
+                Icon={subIcon}
+              />
+              <TimelinePoint
+                id={id + 1}
+                type={type}
+                length={timelineRules.length}
+              />
+              <TimelineContent
+                stepName={stepName}
+                time={time}
+                peopleStatus={peopleStatus}
+                activeCheckpoint={activeCheckpoint}
+                infoText={infoText}
+                infoNumbers={infoNumbers}
+              />
             </div>
           )
         })}

@@ -26,7 +26,7 @@ export const registration = {
   available: [
     'din0',
     'din1',
-    'aud2',
+    'mon',
     'aud7',
     'din8',
     'wc9',
@@ -44,16 +44,16 @@ export const entrance = {
   available: [
     'din0',
     'din1',
-    'aud2',
+    'mon',
     'aud16',
     'aud17',
     'aud18',
     'aud19',
     'aud20',
-    'aud21',
-    'aud22',
+    'bag1',
+    'bag2',
     'aud24',
-    'aud25'
+    'wc1'
   ],
   next: registration,
   status: active

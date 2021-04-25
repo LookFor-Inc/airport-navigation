@@ -8,7 +8,7 @@ import Timeline from '@/pages/Airport/components/Timeline/Timeline'
  */
 function InfoTabBody() {
   return (
-    <div className='bg-gray-50 shadow-inner'>
+    <div className='shadow-inner'>
       <FastActions />
       <Timeline />
     </div>

@@ -50,8 +50,10 @@ function MainPage() {
     <div className='bg-gray-50 min-h-screen'>
       <Content className='flex flex-col justify-center items-center space-y-5'>
         <SvoIcon className='w-full max-w-md h-20' />
-        <h1 className='font-medium text-2xl text-center'>Персональный ассистен</h1>
-        <p className='text-gray-800 mb-24 text-center'>
+        <h1 className='font-bold text-2xl text-center'>
+          Персональный ассистен
+        </h1>
+        <p className='text-gray-800 mb-24 text-center text-sm'>
           Помощь по навигации и учёту времени в аэропорту.
           Для продолжения найдите свой рейс.
         </p>
@@ -136,8 +138,8 @@ function MainPage() {
           <BarCodeIcon className='w-28 text-gray-800' />
           <div className='my-5'>
             <h2 className='font-medium text-xl mb-2'>Или отсканируйте штрих-код на билете</h2>
-            <p className='text-gray-800'>Для этого потребуется доступ к камере</p>
-            <p className='text-gray-800 mb-5'>вашего устройства</p>
+            <p className='text-gray-800 text-sm'>Для этого потребуется доступ к камере</p>
+            <p className='text-gray-800 mb-5 text-sm'>вашего устройства</p>
             <Button color='primary' className='w-auto'>
               Отсканировать
             </Button>
@@ -147,7 +149,5 @@ function MainPage() {
     </div>
   )
 }
-
-MainPage.propTypes = {}
 
 export default MainPage

@@ -1,9 +1,9 @@
 import React from 'react'
 
 /**
- * Икнока регистрации пассажира
+ * Иконка регистрации пассажира
  * @param {object} props Дополнительные свойтсва
- * @returns {JSX.Element} Икнока регистрации пассажира
+ * @returns {JSX.Element} Иконка регистрации пассажира
  */
 function ReceptionIcon(props) {
   return (

@@ -18,14 +18,14 @@ function withSchemePage(PageComponent) {
    * @returns {JSX.Element} Компонент
    */
   const SchemeWrapper = ({resetPath, clearSearch, fetched, fetchSchemeAsync}) => {
-    const {schemeId} = useParams()
+    const {terminalId} = useParams()
 
     useEffect(() => {
       clearSearch()
       resetPath()
 
-      if (schemeId !== undefined) {
-        fetchSchemeAsync(schemeId)
+      if (terminalId !== undefined) {
+        fetchSchemeAsync(terminalId)
       }
     }, [])
 

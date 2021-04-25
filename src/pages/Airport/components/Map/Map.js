@@ -77,7 +77,7 @@ function Map({schemeUrl, progress, target, hideProgress, setTarget}) {
    * @returns {void}
    */
   const paintSelected = selected => {
-    selected.transition().style('fill', '#0057ff')
+    selected.transition().style('fill', '#f45525')
     prevElem.current = selected
   }
 

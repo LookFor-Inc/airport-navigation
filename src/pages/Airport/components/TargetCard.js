@@ -8,8 +8,9 @@ import WCIcon from '@/assets/icons/RoomType/WCIcon'
 import Button from '@/components/Button'
 import Card from '@/components/Card/Card'
 import {getRoomByTarget} from '@/handlers/api/schemeHandler'
+import {useCheckpoints} from '@/pages/Airport/components/BottomNavigation/CheckpointsProvider'
 import {selectSchemeRooms} from '@/pages/Airport/selectors'
-import {setTargetForm} from '@/store/Scheme/actions'
+import {setSearchFrom, setSearchTo, setTargetForm} from '@/store/Scheme/actions'
 
 const iconRoomType = {
   aud: AudienceIcon,
@@ -20,13 +21,16 @@ const iconRoomType = {
 
 /**
  * Карточка выбора аудитории схемы
- * @param {string} target Ключевое название комнаты
- * @param {function} setTarget Функция установки идентификатора комнаты
- * @param {array} schemeRooms Комнаты на схеме
+ * @param {string} target Ключевое название помещения
+ * @param {function} setTarget Функция установки идентификатора помещения
+ * @param {function} setSearchFrom Функция установки 'Откуда'
+ * @param {function} setSearchTo Функция установки 'Куда'
+ * @param {array} schemeRooms Помещения на схеме
  * @param {object} search Форма заполнения маршрута
- * @returns {JSX.Element} Элемент карточки выбора аудитории
+ * @returns {JSX.Element} Элемент карточки выбора куда строить маршрут
  */
-function TargetCard({target, setTarget, schemeRooms, search}) {
+function TargetCard({target, setTarget, setSearchTo, setSearchFrom, schemeRooms, search}) {
+  const {checkpoint} = useCheckpoints()
   const [room, setRoom] = useState({})
 
   useEffect(() => {
@@ -36,6 +40,7 @@ function TargetCard({target, setTarget, schemeRooms, search}) {
   return <>
     {(target && room) &&
     <div className='absolute bottom-16 max-w-md w-1/3 min-w-max mx-auto inset-x-0'>
+      {checkpoint.available.includes(room.target) &&
       <Card className='flex py-3 px-6 justify-between space-x-5'>
         <div className='flex space-x-3'>
           {createElement(
@@ -51,6 +56,8 @@ function TargetCard({target, setTarget, schemeRooms, search}) {
             size='sm'
             color='primary'
             onClick={() => {
+              setSearchFrom(checkpoint.target, checkpoint.title)
+              setSearchTo(room.target, room.title)
               setTarget(null)
             }}
           >
@@ -58,6 +65,12 @@ function TargetCard({target, setTarget, schemeRooms, search}) {
           </Button>
         </div>
       </Card>
+      }
+      {!checkpoint.available.includes(room.target) &&
+      <Card className='py-3 px-6 space-x-5 bg-red-500 text-white text-center'>
+        Вы не можете пройти сюда
+      </Card>
+      }
     </div>
     }
   </>
@@ -66,12 +79,14 @@ function TargetCard({target, setTarget, schemeRooms, search}) {
 TargetCard.propTypes = {
   target: PropTypes.string,
   setTarget: PropTypes.func,
+  setSearchTo: PropTypes.func,
+  setSearchFrom: PropTypes.func,
   schemeRooms: PropTypes.array,
   search: PropTypes.object
 }
 
 /**
- * Получение состояния комнат здания
+ * Получение состояния помещений здания
  * @param {object} state Состояние
  * @returns {{schemeRooms: []}} Значения состояний
  */
@@ -90,7 +105,9 @@ const targetCardState = state => {
  */
 const targetCardDispatch = dispatch => {
   return {
-    setTarget: target => dispatch(setTargetForm(target))
+    setTarget: target => dispatch(setTargetForm(target)),
+    setSearchTo: (target, value) => dispatch(setSearchTo(target, value)),
+    setSearchFrom: (target, value) => dispatch(setSearchFrom(target, value))
   }
 }
 

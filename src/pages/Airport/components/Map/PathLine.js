@@ -5,7 +5,7 @@ import {getPathOnFloor} from '@/handlers/api/pathHandler'
 import {getLine, interpolateStr, selectEl} from '@/helpers/d3'
 import './PathLine.css'
 
-const DELTA = 250
+const DELTA = 550
 
 /**
  * Компонент построения пути

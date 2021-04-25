@@ -19,7 +19,8 @@ export function getPathLength(path) {
   if (!path || path.length === 0) {
     return null
   }
-  const pathLine = path.map(p => p.r)[0]
+  const pathLine = []
+  path.map(p => pathLine.push(...p.r))
   return pathLine.reduce((acc, currValue, idx, arr) => {
     if (idx === 0) {
       return 0

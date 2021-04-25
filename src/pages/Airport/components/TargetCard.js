@@ -20,6 +20,9 @@ const iconRoomType = {
   gym: GymIcon
 }
 
+const METER_PIXEL = 11.3248
+const METER_MINUTES_SPEED = 83.3333
+
 /**
  * Карточка выбора аудитории схемы
  * @param {string} target Ключевое название помещения
@@ -33,14 +36,20 @@ const iconRoomType = {
 function TargetCard({target, setTarget, setSearchTo, setSearchFrom, schemeRooms, search, wayfindingPath}) {
   const {checkpoint} = useCheckpoints()
   const [room, setRoom] = useState({})
-  const [time, setTime] = useState(null)
+  const [distance, setDistance] = useState(null)
 
   useEffect(() => {
     setRoom(getRoomByTarget(schemeRooms, target))
   }, [target])
 
   useEffect(() => {
-    setTime(getPathLength(wayfindingPath))
+    const pathLength = getPathLength(wayfindingPath)
+    if (pathLength) {
+      setDistance({
+        time: Math.ceil(pathLength / METER_PIXEL / METER_MINUTES_SPEED),
+        length: (pathLength / METER_PIXEL).toFixed(2)
+      })
+    }
   }, [wayfindingPath])
 
   return <>
@@ -79,10 +88,13 @@ function TargetCard({target, setTarget, setSearchTo, setSearchFrom, schemeRooms,
       }
     </div>
     }
-    {(time && !target && !room) &&
+    {(distance && !target && !room) &&
     <div className='absolute bottom-16 max-w-md w-1/3 min-w-max mx-auto inset-x-0'>
-      <Card className='py-3 px-6 space-x-5 text-center'>
-        Вам потребуется ~{time} мин.
+      <Card className='py-3 px-6 space-x-5'>
+        <p>
+          Вам потребуется времени: <b>~{distance.time} мин.</b><br/>
+          Расстояние: <b>{distance.length} м.</b>
+        </p>
       </Card>
     </div>
     }

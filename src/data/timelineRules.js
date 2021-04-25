@@ -18,7 +18,9 @@ export const allTimeLineRules = {
       time: '17:50',
       peopleStatus: PEOPLE_AMOUNT_STATUS.LESS,
       willSpendTime: 6,
-      activeCheckpoint: entrance
+      activeCheckpoint: entrance,
+      infoText: 'Стойки',
+      infoNumbers: '№24-27'
     },
     {
       subIcon: CustomsIcon,
@@ -42,7 +44,9 @@ export const allTimeLineRules = {
       time: '18:40',
       peopleStatus: PEOPLE_AMOUNT_STATUS.MANY,
       willSpendTime: 30,
-      activeCheckpoint: passportControl
+      activeCheckpoint: passportControl,
+      infoText: 'Выход',
+      infoNumbers: '№20'
     }
   ],
   'depsu2609-mscos': [
@@ -52,7 +56,9 @@ export const allTimeLineRules = {
       time: '17:50',
       peopleStatus: PEOPLE_AMOUNT_STATUS.MANY,
       willSpendTime: 30,
-      activeCheckpoint: entrance
+      activeCheckpoint: entrance,
+      infoText: 'Стойки',
+      infoNumbers: '№24-27'
     },
     {
       subIcon: CustomsIcon,
@@ -76,7 +82,9 @@ export const allTimeLineRules = {
       time: '18:40',
       peopleStatus: PEOPLE_AMOUNT_STATUS.LESS,
       willSpendTime: 4,
-      activeCheckpoint: passportControl
+      activeCheckpoint: passportControl,
+      infoText: 'Выход',
+      infoNumbers: '№20'
     }
   ]
 }

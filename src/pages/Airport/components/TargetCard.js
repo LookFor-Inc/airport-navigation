@@ -54,19 +54,19 @@ function TargetCard({target, setTarget, setSearchTo, setSearchFrom, schemeRooms,
 
   return <>
     {(target && room) &&
-    <div className='absolute bottom-16 max-w-md w-1/3 min-w-max mx-auto inset-x-0'>
+    <div className='fixed bottom-16 max-w-md  mx-auto inset-x-0'>
       {checkpoint.available.includes(room.target) &&
       <Card className='flex py-3 px-6 justify-between space-x-5'>
-        <div className='flex space-x-3'>
+        <div className='flex space-x-3 items-center'>
           {createElement(
             iconRoomType[room.type] ? iconRoomType[room.type] : 'div',
-            {className: 'self-center text-gray-600 h-7'}
+            {className: 'self-center text-gray-600 h-7 flex-grow'}
           )}
-          <h1 className='self-center text-coolGray-600 font-medium'>
+          <h1 className='h-5 flex-shrink text-coolGray-600 font-medium line-clamp-1 break-all'>
             {room.title}
           </h1>
         </div>
-        <div className='flex space-x-5'>
+        <div className='flex-grow flex justify-end'>
           <Button
             size='sm'
             color='primary'
@@ -92,7 +92,7 @@ function TargetCard({target, setTarget, setSearchTo, setSearchFrom, schemeRooms,
     <div className='absolute bottom-16 max-w-md w-1/3 min-w-max mx-auto inset-x-0'>
       <Card className='py-3 px-6 space-x-5'>
         <p>
-          Вам потребуется времени: <b>~{distance.time} мин.</b><br/>
+          Вам потребуется времени: <b>~{distance.time} мин.</b><br />
           Расстояние: <b>{distance.length} м.</b>
         </p>
       </Card>

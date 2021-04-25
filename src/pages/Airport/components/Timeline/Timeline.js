@@ -25,12 +25,21 @@ function Timeline() {
   }, [flight])
 
   return (
-    <div className='container px-6 pt-5 mx-auto'>
+    <div className='px-6 pt-5 mx-auto'>
       <p className='uppercase text-gray-500 font-semibold text-xs'>
         Порядок действий
       </p>
       <div className='flex flex-col'>
-        {timeLineRules.map(({subIcon, stepName, time, peopleStatus, willSpendTime, activeCheckpoint}, id) => {
+        {timeLineRules.map(({
+          subIcon,
+          stepName,
+          time,
+          peopleStatus,
+          willSpendTime,
+          activeCheckpoint,
+          infoText,
+          infoNumbers
+        }, id) => {
           const type = activeCheckpoint.status === completed
             ? 'checked'
             : (activeCheckpoint.status === waiting
@@ -53,6 +62,8 @@ function Timeline() {
                 peopleStatus={peopleStatus}
                 minToSpend={willSpendTime}
                 activeCheckpoint={activeCheckpoint}
+                infoText={infoText}
+                infoNumbers={infoNumbers}
               />
             </div>
           )

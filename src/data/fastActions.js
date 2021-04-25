@@ -7,22 +7,27 @@ import ToiletIcon from '@/assets/icons/ToiletIcon'
 export const fastActions =[
   {
     icon: ToiletIcon,
-    name: 'Туалет'
+    name: 'Туалет',
+    type: 'wc'
   },
   {
     icon: RestaurantIcon,
-    name: 'Рестораны'
+    name: 'Рестораны',
+    type: 'res'
   },
   {
     icon: CovidIcon,
-    name: 'Тест на Covid'
+    name: 'Тест на Covid',
+    type: 'cov'
   },
   {
     icon: BaggageIcon,
-    name: 'Упаковка багажа'
+    name: 'Упаковка багажа',
+    type: 'bag'
   },
   {
     icon: MoneyIcon,
-    name: 'Обмен валют'
+    name: 'Обмен валют',
+    type: 'mon'
   }
 ]

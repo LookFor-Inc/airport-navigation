@@ -4,6 +4,7 @@ import SVG from 'react-inlinesvg'
 import {connect} from 'react-redux'
 import PageProgress from '@/components/PageProgress'
 import {getViewBox, selectEl, selectEls} from '@/helpers/d3'
+import UserPosition from '@/pages/Airport/components/Map/UserPosition'
 import {hideProgress, setTargetForm} from '@/store/Scheme/actions'
 import MapProvider from './MapProvider'
 import Path from './Path'
@@ -111,6 +112,7 @@ function Map({schemeUrl, progress, target, hideProgress, setTarget}) {
             src={schemeUrl}
           />
           <Path mapViewBox={mapViewBox} />
+          <UserPosition mapViewBox={mapViewBox} />
         </ZoomContainer>
       </MapProvider>
     </div>

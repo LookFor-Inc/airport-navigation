@@ -1,9 +1,14 @@
 const TERMINAL_D_FLOORS = {
   floors: {
+    '1': {
+      'url': '/svg/d/1.svg',
+      'rooms': [],
+      'vertices': []
+    },
     '2': {
       'url': '/svg/d/2.svg',
       'rooms': {
-        'aud25': {
+        'wc1': {
           'title': 'Туалет 2',
           'mainId': '1-25c',
           'ids': [
@@ -96,7 +101,7 @@ const TERMINAL_D_FLOORS = {
             '0-1c0e'
           ]
         },
-        'aud2': {
+        'mon': {
           'title': 'Обмен валют',
           'mainId': '0-2c',
           'ids': [
@@ -213,7 +218,7 @@ const TERMINAL_D_FLOORS = {
             '0-20c0e'
           ]
         },
-        'aud21': {
+        'bag1': {
           'title': 'Упаковка багажа 2',
           'mainId': '0-21c',
           'ids': [
@@ -221,7 +226,7 @@ const TERMINAL_D_FLOORS = {
             '0-21c0e'
           ]
         },
-        'aud22': {
+        'bag2': {
           'title': 'Упаковка багажа 1',
           'mainId': '0-22c',
           'ids': [
@@ -1689,6 +1694,11 @@ const TERMINAL_D_FLOORS = {
           ]
         }
       }
+    },
+    '4': {
+      'url': '/svg/d/4.svg',
+      'rooms': [],
+      'vertices': []
     }
   }
 }

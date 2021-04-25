@@ -1,9 +1,9 @@
 import React from 'react'
 
 /**
- * Икнока галочки
+ * Иконка галочки
  * @param {Object} props Дополнительные свойства
- * @returns {JSX.Element} Икнока галочки
+ * @returns {JSX.Element} Иконка галочки
  */
 function CheckIcon(props) {
   return (

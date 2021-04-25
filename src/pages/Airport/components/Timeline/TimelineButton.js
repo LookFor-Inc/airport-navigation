@@ -3,7 +3,6 @@ import classNames from 'classnames'
 import PropTypes from 'prop-types'
 
 /**
- *
  * @param {JSXElement} Icon Иконка(компонент)
  * @param {string} text Текст для кнопки
  * @param {string} color Цвет иконки
@@ -14,7 +13,7 @@ function TimelineButton({icon, text, color, ...props}) {
     'flex items-center justify-end font-bold text-gray-800 rounded-md p-1 hover:bg-gray-100 sm:text-xl',
     props.className)
 
-  const iconClasses = classNames('ml-2 h-4 w-3', {
+  const iconClasses = classNames('w-3 h-3 ml-1', {
     'text-error': color === 'error',
     'text-primary': color === 'primary'
   })

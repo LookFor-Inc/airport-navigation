@@ -4,13 +4,15 @@ import PropTypes from 'prop-types'
 function FastActionsButton({Icon, name}) {
   return (
     <button className='self-start'>
-      <div className="flex flex-col items-center">
-        <div className="min-width bg-gray-900 h-16 w-16 text-white text-center font-extrabold flex items-center
-        justify-center rounded-full">
+      <div className='flex flex-col items-center'>
+        <div className='min-width bg-gray-900 h-16 w-16 text-white text-center font-extrabold flex items-center
+        justify-center rounded-full'>
           <Icon/>
         </div>
-        <div className="flex flex-col items-center justify-center">
-          <span className="text-center text-gray-900 font-sans font-semibold text-sm">{name}</span>
+        <div className='flex flex-col items-center justify-center pt-2.5'>
+          <span className='text-center text-gray-900 font-semibold text-xs'>
+            {name}
+          </span>
         </div>
       </div>
     </button>

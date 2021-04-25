@@ -13,19 +13,19 @@ import CheckIcon from '@/assets/icons/CheckIcon'
  * @constructor
  */
 function TimelinePoint({type, id, length, ...props}) {
-  const pointClasses = classNames('w-6 h-6 top-1/2 -mt-3 rounded-full absolute', {
+  const pointClasses = classNames('w-4 h-4 top-1/2 -mt-3 rounded-full absolute', {
     'bg-primary': type === 'active',
     'bg-error': type === 'error',
     'bg-gray-400': type === 'disable',
     'flex items-center justify-center bg-green-500': type === 'checked'
   }, props.className)
 
-  const animationClasses = classNames('animate-ping inline-flex h-6 w-6 rounded-full opacity-50', {
+  const animationClasses = classNames('w-4 h-4 animate-ping inline-flex rounded-full opacity-50', {
     'bg-primary': type === 'active',
     'bg-error': type === 'error'
   })
 
-  const lineClasses = classNames('absolute w-1 bg-gray-400 pointer-events-none', {
+  const lineClasses = classNames('absolute w-1 bg-gray-200 pointer-events-none', {
     'h-1/2 bottom-0': id === 1,
     'h-1/2 top-0': id === length,
     'h-full': id !== length && id !== 1
@@ -33,13 +33,13 @@ function TimelinePoint({type, id, length, ...props}) {
 
   return (
     <>
-      <div className="relative mr-5">
-        <div className="h-full w-6 flex items-center justify-center">
-          <div className={lineClasses}/>
+      <div className='relative mr-4'>
+        <div className='h-full w-4 flex items-center justify-center'>
+          <div className={lineClasses} />
         </div>
         <div className={pointClasses}>
-          {type === 'active' || type === 'error' && <span className={animationClasses}/>}
-          {type === 'checked' && <CheckIcon className='w-4 h-4 text-gray-100' />}
+          {type === 'active' || type === 'error' && <span className={animationClasses} />}
+          {type === 'checked' && <CheckIcon className='w-2.5 h-2.5 text-gray-100' />}
         </div>
       </div>
     </>

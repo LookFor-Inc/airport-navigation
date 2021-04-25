@@ -1,9 +1,9 @@
 import React from 'react'
 
 /**
- * Икнока паспортного контроля
+ * Иконка паспортного контроля
  * @param {object} props Дополнительные свойтсва
- * @returns {JSX.Element} Икнока пасспортного контроля
+ * @returns {JSX.Element} Иконка пасспортного контроля
  */
 function PassportControlIcon(props) {
   return (

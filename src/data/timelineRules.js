@@ -3,29 +3,39 @@ import PassportControlIcon from '@/assets/icons/PassportControlIcon'
 import ReceptionIcon from '@/assets/icons/ReceptionIcon'
 import TruckIcon from '@/assets/icons/TruckIcon'
 
+export const PEOPLE_AMOUNT_STATUS = {
+  LESS: 'Мало людей',
+  NORM: 'Достаточно людей',
+  MANY: 'Много людей'
+}
+
 export const timelineRules = [
   {
     subIcon: ReceptionIcon,
     stepName: 'Регистрация',
     time: '17:50',
-    rules: ['Проверка документов', 'Cдача багажа']
+    peopleStatus: PEOPLE_AMOUNT_STATUS.LESS,
+    type: 'checked'
   },
   {
     subIcon: CustomsIcon,
     stepName: 'Таможня',
     time: '18:15',
-    rules: ['Осмотр содержимого багажа', 'Прохождение металлодетектора', 'Запрет на пронос жидкости']
+    peopleStatus: PEOPLE_AMOUNT_STATUS.LESS,
+    type: 'checked'
   },
   {
     subIcon: PassportControlIcon,
     stepName: 'Паспортный контроль',
     time: '18:30',
-    rules: ['Проверка документов']
+    peopleStatus: PEOPLE_AMOUNT_STATUS.NORM,
+    type: 'active'
   },
   {
     subIcon: TruckIcon,
     stepName: 'Посадка',
     time: '18:40',
-    rules: ['Проверка билета', 'Размещение пассажиров']
+    peopleStatus: PEOPLE_AMOUNT_STATUS.MANY,
+    type: 'error'
   }
 ]

@@ -4,7 +4,7 @@ import PropTypes from 'prop-types'
 
 /**
  * Кнопкадля отображения дополнительной информации внутри себя
- * @param {function} Icon Икнока
+ * @param {function} Icon Иконка
  * @param {string} text Текст кнопки
  * @param {string|function} extraData Дополнительные текст илииконка
  * @param {string} color Название цвета
@@ -22,11 +22,13 @@ function ExtraInfoButton({Icon, text, extraData, color, ...props}) {
   return (
     <button className={classes}>
       <div className='flex space-x-4'>
-        <Icon className='text-white'/>
+        <Icon className='text-white' />
         <span className='text-sm text-white text-center'>{text}</span>
-        {typeof extraData === 'string' && <span className='text-sm'>{extraData}</span>}
       </div>
-      {typeof extraData === 'function' && createElement(extraData, {className: 'text-white'})}
+      <div className='flex'>
+        {typeof extraData === 'string' && <span className='text-sm'>{extraData}</span>}
+        {typeof extraData === 'function' && createElement(extraData, {className: 'text-white'})}
+      </div>
     </button>
   )
 }

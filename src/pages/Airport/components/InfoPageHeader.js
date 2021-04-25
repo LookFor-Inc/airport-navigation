@@ -13,13 +13,13 @@ import TerminalLogo from '@/pages/Airport/components/TerminalLogo'
  */
 function InfoPageHeader({time}) {
   return (
-    <div className='flex flex-col items-center bg-gray-100 pt-8 pb-4'>
-      <div className='inline-flex flex-col space-y-2'>
-        <TerminalLogo className='self-start mb-2' terminalName='Терминал Д'/>
+    <div className='flex flex-col items-center bg-gray-100 pt-8 pb-6'>
+      <div className='inline-flex flex-col space-y-2 px-6 w-full'>
+        <TerminalLogo className='self-start mb-4' terminalName='Терминал Д'/>
         <ExtraInfoButton
           Icon={PlaneIcon}
           text='Время до вылета'
-          extraData='1 час 2 минуты'
+          extraData='1 час 2 мин.'
           color='error'
         />
         <ExtraInfoButton

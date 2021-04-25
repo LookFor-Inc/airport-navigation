@@ -13,7 +13,7 @@ function TerminalLogo({terminalName, ...props}) {
   return (
     <div className={classes}>
       <img className='w-9 h-9' src={svo} alt='терминал'/>
-      <h3 className='font-bold text-2xl tracking-tight'>
+      <h3 className='font-bold text-3xl tracking-tight'>
         {terminalName}
       </h3>
     </div>
@@ -24,4 +24,5 @@ TerminalLogo.propTypes = {
   terminalName: PropTypes.string,
   className: PropTypes.string
 }
+
 export default TerminalLogo

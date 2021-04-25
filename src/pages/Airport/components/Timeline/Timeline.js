@@ -10,13 +10,16 @@ import TimelinePointIcon from '@/pages/Airport/components/Timeline/TimilinePoint
  */
 function Timeline() {
   return (
-    <div className="container px-8 mx-auto">
-      <div className="flex flex-col">
-        {timelineRules.map(({subIcon, stepName, time, rules}, id) => (
-          <div className="flex" key={id}>
-            <TimelinePointIcon Icon={subIcon}/>
-            <TimelinePoint type='checked' id={id + 1} length={timelineRules.length}/>
-            <TimelineContent stepName={stepName} time={time} rules={rules}/>
+    <div className='container px-6 pt-5 mx-auto'>
+      <p className='uppercase text-gray-500 font-semibold text-xs'>
+        Порядок действий
+      </p>
+      <div className='flex flex-col'>
+        {timelineRules.map(({subIcon, stepName, time, peopleStatus, type}, id) => (
+          <div className='flex' key={id}>
+            <TimelinePointIcon Icon={subIcon} />
+            <TimelinePoint type={type} id={id + 1} length={timelineRules.length} />
+            <TimelineContent stepName={stepName} time={time} peopleStatus={peopleStatus} />
           </div>
         ))}
       </div>

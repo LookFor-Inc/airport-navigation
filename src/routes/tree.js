@@ -3,7 +3,7 @@ import {lazy} from 'react'
 const DefaultLayout = lazy(() => import('@/layouts/DefaultLayout'))
 
 const mainPage = {
-  title: 'Главная страница',
+  title: 'Main Page',
   exact: true,
   path: '/',
   component: lazy(() => import('@/pages/Main/MainPage')),
@@ -12,9 +12,9 @@ const mainPage = {
 }
 
 const schemePage = {
-  title: 'Indoor Schemes',
+  title: 'Airport Navigation',
   exact: true,
-  path: ['/terminal/:schemeId'],
+  path: ['/terminal/:terminalId/:schemeId'],
   component: lazy(() => import('@/pages/Airport/AirportPage')),
   layout: DefaultLayout
 }
